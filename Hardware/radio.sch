@@ -149,4 +149,6 @@ F 3 "~" H 6850 3650 50  0001 C CNN
 	1    6850 3650
 	0    1    1    0   
 $EndComp
+Text Notes 6350 2800 0    50   ~ 0
+Note: Decoupling capacitors guessed\nbased off of RICARDO; manufacturer\ndoes not provide a value
 $EndSCHEMATC

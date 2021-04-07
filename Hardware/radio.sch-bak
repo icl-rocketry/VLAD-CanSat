@@ -58,32 +58,6 @@ F 3 "" H 5900 4650 50  0001 C CNN
 	1    5900 4650
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector:Conn_Coaxial J?
-U 1 1 606C8A45
-P 6800 3650
-F 0 "J?" H 6900 3625 50  0000 L CNN
-F 1 "Conn_Coaxial" H 6900 3534 50  0000 L CNN
-F 2 "" H 6800 3650 50  0001 C CNN
-F 3 " ~" H 6800 3650 50  0001 C CNN
-	1    6800 3650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6800 3850 6800 3950
-$Comp
-L power:GND #PWR0107
-U 1 1 606C9E63
-P 6800 3950
-F 0 "#PWR0107" H 6800 3700 50  0001 C CNN
-F 1 "GND" H 6805 3777 50  0000 C CNN
-F 2 "" H 6800 3950 50  0001 C CNN
-F 3 "" H 6800 3950 50  0001 C CNN
-	1    6800 3950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6400 3650 6600 3650
 Wire Wire Line
 	5400 4150 5250 4150
 Text HLabel 5250 4150 0    50   Input ~ 0
@@ -162,4 +136,17 @@ $EndComp
 Connection ~ 6300 3000
 Wire Wire Line
 	6300 3000 6300 2850
+Wire Wire Line
+	6400 3650 6650 3650
+$Comp
+L Device:Antenna AE?
+U 1 1 606E40D7
+P 6850 3650
+F 0 "AE?" V 6804 3780 50  0000 L CNN
+F 1 "Antenna" V 6895 3780 50  0000 L CNN
+F 2 "" H 6850 3650 50  0001 C CNN
+F 3 "~" H 6850 3650 50  0001 C CNN
+	1    6850 3650
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
