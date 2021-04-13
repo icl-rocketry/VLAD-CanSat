@@ -219,4 +219,12 @@ Text Label 2350 1600 0    50   ~ 0
 RadioReset
 Text Label 2350 1500 0    50   ~ 0
 RadioCS
+NoConn ~ 5200 3900
+NoConn ~ 5200 4300
+NoConn ~ 5200 4000
+NoConn ~ 5200 4100
+NoConn ~ 5200 4200
+NoConn ~ 5200 4400
+Text Notes 4550 4300 0    50   ~ 0
+Connected to\nbuilt-in flash\nhence left\ndisconnected
 $EndSCHEMATC
