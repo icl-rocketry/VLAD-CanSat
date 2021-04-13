@@ -42,22 +42,26 @@ Wire Wire Line
 Wire Wire Line
 	6400 4300 6650 4300
 $Sheet
-S 1500 2350 1300 800 
+S 1500 3800 550  550 
 U 6068D50F
 F0 "Storage" 50
 F1 "Storage.sch" 50
+F2 "CS" I R 2050 4250 50 
+F3 "MOSI" I R 2050 4050 50 
+F4 "SCLK" I R 2050 3950 50 
+F5 "MISO" O R 2050 4150 50 
 $EndSheet
 $Sheet
-S 1700 1100 550  700 
+S 1500 2750 550  700 
 U 606B714B
 F0 "radio" 50
 F1 "radio.sch" 50
-F2 "MOSI" I R 2250 1300 50 
-F3 "MISO" O R 2250 1400 50 
-F4 "CS" I R 2250 1500 50 
-F5 "Reset" I R 2250 1600 50 
-F6 "RxTxDone" O R 2250 1700 50 
-F7 "SCLK" I R 2250 1200 50 
+F2 "MOSI" I R 2050 2950 50 
+F3 "MISO" O R 2050 3050 50 
+F4 "CS" I R 2050 3150 50 
+F5 "Reset" I R 2050 3250 50 
+F6 "RxTxDone" O R 2050 3350 50 
+F7 "SCLK" I R 2050 2850 50 
 $EndSheet
 Text Label 6650 3900 0    50   ~ 0
 SCLK
@@ -184,28 +188,28 @@ Wire Wire Line
 	4850 2700 4950 2700
 Connection ~ 4950 2700
 Wire Wire Line
-	2250 1200 2350 1200
+	2050 2850 2150 2850
 Wire Wire Line
-	2250 1300 2350 1300
+	2050 2950 2150 2950
 Wire Wire Line
-	2250 1400 2350 1400
+	2050 3050 2150 3050
 Wire Wire Line
-	2250 1500 2350 1500
+	2050 3150 2150 3150
 Wire Wire Line
-	2250 1600 2350 1600
+	2050 3250 2150 3250
 Wire Wire Line
-	2250 1700 2350 1700
-Text Label 2350 1200 0    50   ~ 0
+	2050 3350 2150 3350
+Text Label 2150 2850 0    50   ~ 0
 SCLK
-Text Label 2350 1400 0    50   ~ 0
+Text Label 2150 3050 0    50   ~ 0
 MISO
-Text Label 2350 1300 0    50   ~ 0
+Text Label 2150 2950 0    50   ~ 0
 MOSI
 Wire Wire Line
 	6400 2900 6650 2900
 Text Label 6650 2900 0    50   ~ 0
 RadioDone
-Text Label 2350 1700 0    50   ~ 0
+Text Label 2150 3350 0    50   ~ 0
 RadioDone
 Wire Wire Line
 	6400 3500 6650 3500
@@ -215,9 +219,9 @@ Wire Wire Line
 	6400 3200 6650 3200
 Text Label 6650 3200 0    50   ~ 0
 RadioCS
-Text Label 2350 1600 0    50   ~ 0
+Text Label 2150 3250 0    50   ~ 0
 RadioReset
-Text Label 2350 1500 0    50   ~ 0
+Text Label 2150 3150 0    50   ~ 0
 RadioCS
 NoConn ~ 5200 3900
 NoConn ~ 5200 4300
@@ -227,4 +231,24 @@ NoConn ~ 5200 4200
 NoConn ~ 5200 4400
 Text Notes 4550 4300 0    50   ~ 0
 Connected to\nbuilt-in flash\nhence left\ndisconnected
+Wire Wire Line
+	2050 3950 2150 3950
+Wire Wire Line
+	2050 4050 2150 4050
+Wire Wire Line
+	2050 4150 2150 4150
+Wire Wire Line
+	2050 4250 2150 4250
+Text Label 2150 3950 0    50   ~ 0
+SCLK
+Text Label 2150 4050 0    50   ~ 0
+MOSI
+Text Label 2150 4150 0    50   ~ 0
+MISO
+Text Label 2150 4250 0    50   ~ 0
+SDCS
+Wire Wire Line
+	6400 3600 6650 3600
+Text Label 6650 3600 0    50   ~ 0
+SDCS
 $EndSCHEMATC
