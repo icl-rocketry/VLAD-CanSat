@@ -332,9 +332,6 @@ Wire Wire Line
 	2450 4550 1750 4550
 Wire Wire Line
 	1750 4550 1750 4100
-Connection ~ 1750 4100
-Wire Wire Line
-	1750 4100 1450 4100
 Wire Wire Line
 	2450 4300 2450 4350
 Wire Wire Line
@@ -398,8 +395,6 @@ Text Label 1450 3050 0    50   ~ 0
 USB_DTR
 Text Label 1450 4800 0    50   ~ 0
 USB_RTS
-Text Label 1450 4100 0    50   ~ 0
-USB_DTR
 Wire Wire Line
 	1750 5700 1850 5700
 Wire Wire Line
@@ -531,8 +526,6 @@ F 3 "~" H 2650 6400 50  0001 C CNN
 	1    2650 6200
 	1    0    0    -1  
 $EndComp
-Text Notes 750  3700 0    50   ~ 0
-Auto Programmer, for how this works see this link:\nhttps://pcbartists.com/design/esp32-cp2102-programmer-schematic/
 Text Notes 700  6450 0    50   ~ 0
 Manual\npull-down\nswitches
 $Comp
@@ -618,4 +611,11 @@ F 3 "" H 2400 1300 50  0001 C CNN
 	1    2400 1300
 	1    0    0    -1  
 $EndComp
+Connection ~ 1750 4100
+Text Notes 750  3700 0    50   ~ 0
+Auto Programmer, for how this works see this link:\nhttps://pcbartists.com/design/esp32-cp2102-programmer-schematic/
+Text Label 1450 4100 0    50   ~ 0
+USB_DTR
+Wire Wire Line
+	1750 4100 1450 4100
 $EndSCHEMATC
