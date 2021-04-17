@@ -555,6 +555,19 @@ $EndSheet
 $Comp
 L Connector:TestPoint TP?
 U 1 1 607C855A
+P 2500 1100
+F 0 "TP?" V 2454 1288 50  0000 L CNN
+F 1 "TestPoint" V 2545 1288 50  0000 L CNN
+F 2 "" H 2700 1100 50  0001 C CNN
+F 3 "~" H 2700 1100 50  0001 C CNN
+	1    2500 1100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2500 1100 2350 1100
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607CA5C6
 P 2500 1500
 F 0 "TP?" V 2454 1688 50  0000 L CNN
 F 1 "TestPoint" V 2545 1688 50  0000 L CNN
@@ -567,20 +580,26 @@ Wire Wire Line
 	2500 1500 2350 1500
 $Comp
 L Connector:TestPoint TP?
-U 1 1 607CA5C6
-P 2500 1900
-F 0 "TP?" V 2454 2088 50  0000 L CNN
-F 1 "TestPoint" V 2545 2088 50  0000 L CNN
-F 2 "" H 2700 1900 50  0001 C CNN
-F 3 "~" H 2700 1900 50  0001 C CNN
-	1    2500 1900
+U 1 1 607CC68B
+P 2500 1300
+F 0 "TP?" V 2454 1488 50  0000 L CNN
+F 1 "TestPoint" V 2545 1488 50  0000 L CNN
+F 2 "" H 2700 1300 50  0001 C CNN
+F 3 "~" H 2700 1300 50  0001 C CNN
+	1    2500 1300
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2500 1900 2350 1900
+	2500 1300 2350 1300
+Text Label 2350 1100 0    50   ~ 0
+SCLK
+Text Label 2350 1500 0    50   ~ 0
+MISO
+Text Label 2350 1300 0    50   ~ 0
+MOSI
 $Comp
 L Connector:TestPoint TP?
-U 1 1 607CC68B
+U 1 1 607DC320
 P 2500 1700
 F 0 "TP?" V 2454 1888 50  0000 L CNN
 F 1 "TestPoint" V 2545 1888 50  0000 L CNN
@@ -591,41 +610,22 @@ F 3 "~" H 2700 1700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2500 1700 2350 1700
-Text Label 2350 1500 0    50   ~ 0
-SCLK
-Text Label 2350 1900 0    50   ~ 0
-MISO
-Text Label 2350 1700 0    50   ~ 0
-MOSI
-$Comp
-L Connector:TestPoint TP?
-U 1 1 607DC320
-P 2500 2100
-F 0 "TP?" V 2454 2288 50  0000 L CNN
-F 1 "TestPoint" V 2545 2288 50  0000 L CNN
-F 2 "" H 2700 2100 50  0001 C CNN
-F 3 "~" H 2700 2100 50  0001 C CNN
-	1    2500 2100
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	2500 2100 2350 2100
 $Comp
 L Connector:TestPoint TP?
 U 1 1 607DE57B
-P 2500 2300
-F 0 "TP?" V 2454 2488 50  0000 L CNN
-F 1 "TestPoint" V 2545 2488 50  0000 L CNN
-F 2 "" H 2700 2300 50  0001 C CNN
-F 3 "~" H 2700 2300 50  0001 C CNN
-	1    2500 2300
+P 2500 1900
+F 0 "TP?" V 2454 2088 50  0000 L CNN
+F 1 "TestPoint" V 2545 2088 50  0000 L CNN
+F 2 "" H 2700 1900 50  0001 C CNN
+F 3 "~" H 2700 1900 50  0001 C CNN
+	1    2500 1900
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2500 2300 2350 2300
-Text Label 2350 2100 0    50   ~ 0
+	2500 1900 2350 1900
+Text Label 2350 1700 0    50   ~ 0
 RadioCS
-Text Label 2350 2300 0    50   ~ 0
+Text Label 2350 1900 0    50   ~ 0
 SDCS
 $Comp
 L Connector:TestPoint TP?
@@ -657,4 +657,54 @@ Text Label 1750 7050 0    50   ~ 0
 EN
 Text Label 1750 7250 0    50   ~ 0
 IO0
+$Comp
+L power:+3V3 #PWR?
+U 1 1 607EC630
+P 2350 2500
+F 0 "#PWR?" H 2350 2350 50  0001 C CNN
+F 1 "+3V3" H 2365 2673 50  0000 C CNN
+F 2 "" H 2350 2500 50  0001 C CNN
+F 3 "" H 2350 2500 50  0001 C CNN
+	1    2350 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 2500 2350 2600
+Wire Wire Line
+	2350 2600 2450 2600
+$Comp
+L Device:R_Small R?
+U 1 1 607EF2CF
+P 2550 2600
+F 0 "R?" V 2354 2600 50  0000 C CNN
+F 1 "10k" V 2445 2600 50  0000 C CNN
+F 2 "" H 2550 2600 50  0001 C CNN
+F 3 "~" H 2550 2600 50  0001 C CNN
+	1    2550 2600
+	0    1    1    0   
+$EndComp
+Connection ~ 2350 2600
+Wire Wire Line
+	2350 2900 2450 2900
+Wire Wire Line
+	2350 2600 2350 2900
+Wire Wire Line
+	2650 2600 2800 2600
+Wire Wire Line
+	2650 2900 2800 2900
+Text Label 2800 2600 0    50   ~ 0
+SDCS
+Text Label 2800 2900 0    50   ~ 0
+RadioCS
+$Comp
+L Device:R_Small R?
+U 1 1 608060BD
+P 2550 2900
+F 0 "R?" V 2354 2900 50  0000 C CNN
+F 1 "10k" V 2445 2900 50  0000 C CNN
+F 2 "" H 2550 2900 50  0001 C CNN
+F 3 "~" H 2550 2900 50  0001 C CNN
+	1    2550 2900
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
