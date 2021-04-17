@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:VLAD-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 4
+Sheet 1 5
 Title ""
 Date ""
 Rev ""
@@ -14,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L RF_Module:ESP32-WROOM-32 U?
+L VLAD-rescue:ESP32-WROOM-32-RF_Module U?
 U 1 1 6068A42E
 P 6150 3750
 F 0 "U?" H 6150 5331 50  0000 C CNN
@@ -580,4 +581,10 @@ F 3 "" H 1650 7250 50  0001 C CNN
 	1    1650 7250
 	1    0    0    -1  
 $EndComp
+$Sheet
+S 9850 1050 1000 550 
+U 607ADB4E
+F0 "Power" 50
+F1 "PowerCircuitry.sch" 50
+$EndSheet
 $EndSCHEMATC

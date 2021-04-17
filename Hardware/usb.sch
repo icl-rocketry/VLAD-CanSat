@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:VLAD-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 4
+Sheet 4 5
 Title ""
 Date ""
 Rev ""
@@ -292,7 +293,7 @@ Wire Wire Line
 Wire Wire Line
 	3450 4600 3450 4650
 $Comp
-L Connector:USB_C_Plug_USB2.0 P?
+L VLAD-rescue:USB_C_Plug_USB2.0-Connector P?
 U 1 1 60872C01
 P 3750 3700
 AR Path="/60872C01" Ref="P?"  Part="1" 

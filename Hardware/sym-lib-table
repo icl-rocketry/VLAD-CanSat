@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name VLAD-rescue)(type Legacy)(uri ${KIPRJMOD}/VLAD-rescue.lib)(options "")(descr ""))
+)
