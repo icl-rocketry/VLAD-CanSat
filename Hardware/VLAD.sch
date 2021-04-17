@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:VLAD-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 4
+Sheet 1 5
 Title ""
 Date ""
 Rev ""
@@ -14,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L RF_Module:ESP32-WROOM-32 U?
+L VLAD-rescue:ESP32-WROOM-32-RF_Module U?
 U 1 1 6068A42E
 P 6150 3750
 F 0 "U?" H 6150 5331 50  0000 C CNN
@@ -332,6 +333,9 @@ Wire Wire Line
 	2450 4550 1750 4550
 Wire Wire Line
 	1750 4550 1750 4100
+Connection ~ 1750 4100
+Wire Wire Line
+	1750 4100 1450 4100
 Wire Wire Line
 	2450 4300 2450 4350
 Wire Wire Line
@@ -395,6 +399,8 @@ Text Label 1450 3050 0    50   ~ 0
 USB_DTR
 Text Label 1450 4800 0    50   ~ 0
 USB_RTS
+Text Label 1450 4100 0    50   ~ 0
+USB_DTR
 Wire Wire Line
 	1750 5700 1850 5700
 Wire Wire Line
@@ -526,6 +532,8 @@ F 3 "~" H 2650 6400 50  0001 C CNN
 	1    2650 6200
 	1    0    0    -1  
 $EndComp
+Text Notes 750  3700 0    50   ~ 0
+Auto Programmer, for how this works see this link:\nhttps://pcbartists.com/design/esp32-cp2102-programmer-schematic/
 Text Notes 700  6450 0    50   ~ 0
 Manual\npull-down\nswitches
 $Comp
@@ -573,49 +581,10 @@ F 3 "" H 1650 7250 50  0001 C CNN
 	1    1650 7250
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector:Conn_01x04_Male J?
-U 1 1 60A5081B
-P 2700 1100
-F 0 "J?" H 2672 982 50  0000 R CNN
-F 1 "Conn_01x04_Male" H 2672 1073 50  0000 R CNN
-F 2 "" H 2700 1100 50  0001 C CNN
-F 3 "~" H 2700 1100 50  0001 C CNN
-	1    2700 1100
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	2350 900  2500 900 
-Wire Wire Line
-	2350 1000 2500 1000
-Wire Wire Line
-	2350 1100 2500 1100
-Text Label 2350 900  0    50   ~ 0
-SCLK
-Text Label 2350 1000 0    50   ~ 0
-MOSI
-Text Label 2350 1100 0    50   ~ 0
-MISO
-Wire Wire Line
-	2500 1200 2400 1200
-Wire Wire Line
-	2400 1200 2400 1300
-$Comp
-L power:GND #PWR?
-U 1 1 60A626D9
-P 2400 1300
-F 0 "#PWR?" H 2400 1050 50  0001 C CNN
-F 1 "GND" H 2405 1127 50  0000 C CNN
-F 2 "" H 2400 1300 50  0001 C CNN
-F 3 "" H 2400 1300 50  0001 C CNN
-	1    2400 1300
-	1    0    0    -1  
-$EndComp
-Connection ~ 1750 4100
-Text Notes 750  3700 0    50   ~ 0
-Auto Programmer, for how this works see this link:\nhttps://pcbartists.com/design/esp32-cp2102-programmer-schematic/
-Text Label 1450 4100 0    50   ~ 0
-USB_DTR
-Wire Wire Line
-	1750 4100 1450 4100
+$Sheet
+S 9850 1050 1000 550 
+U 607ADB4E
+F0 "Power" 50
+F1 "PowerCircuitry.sch" 50
+$EndSheet
 $EndSCHEMATC
