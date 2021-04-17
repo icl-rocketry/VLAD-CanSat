@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:VLAD-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -547,44 +546,115 @@ F 3 "~" H 1450 6500 50  0001 C CNN
 	1    1450 6500
 	0    1    1    0   
 $EndComp
-Text Label 1650 7050 2    50   ~ 0
-SerialTx
-Text Label 1650 6950 2    50   ~ 0
-SerialRx
-Wire Wire Line
-	1750 6950 1650 6950
-Wire Wire Line
-	1750 7050 1650 7050
-$Comp
-L Connector:Conn_01x03_Male J?
-U 1 1 60A45047
-P 1950 7050
-F 0 "J?" H 1922 6982 50  0000 R CNN
-F 1 "Conn_01x03_Male" H 1922 7073 50  0000 R CNN
-F 2 "" H 1950 7050 50  0001 C CNN
-F 3 "~" H 1950 7050 50  0001 C CNN
-	1    1950 7050
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	1750 7150 1650 7150
-Wire Wire Line
-	1650 7150 1650 7250
-$Comp
-L power:GND #PWR?
-U 1 1 60A47D32
-P 1650 7250
-F 0 "#PWR?" H 1650 7000 50  0001 C CNN
-F 1 "GND" H 1655 7077 50  0000 C CNN
-F 2 "" H 1650 7250 50  0001 C CNN
-F 3 "" H 1650 7250 50  0001 C CNN
-	1    1650 7250
-	1    0    0    -1  
-$EndComp
 $Sheet
 S 9850 1050 1000 550 
 U 607ADB4E
 F0 "Power" 50
 F1 "PowerCircuitry.sch" 50
 $EndSheet
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607C855A
+P 2500 1500
+F 0 "TP?" V 2454 1688 50  0000 L CNN
+F 1 "TestPoint" V 2545 1688 50  0000 L CNN
+F 2 "" H 2700 1500 50  0001 C CNN
+F 3 "~" H 2700 1500 50  0001 C CNN
+	1    2500 1500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2500 1500 2350 1500
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607CA5C6
+P 2500 1900
+F 0 "TP?" V 2454 2088 50  0000 L CNN
+F 1 "TestPoint" V 2545 2088 50  0000 L CNN
+F 2 "" H 2700 1900 50  0001 C CNN
+F 3 "~" H 2700 1900 50  0001 C CNN
+	1    2500 1900
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2500 1900 2350 1900
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607CC68B
+P 2500 1700
+F 0 "TP?" V 2454 1888 50  0000 L CNN
+F 1 "TestPoint" V 2545 1888 50  0000 L CNN
+F 2 "" H 2700 1700 50  0001 C CNN
+F 3 "~" H 2700 1700 50  0001 C CNN
+	1    2500 1700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2500 1700 2350 1700
+Text Label 2350 1500 0    50   ~ 0
+SCLK
+Text Label 2350 1900 0    50   ~ 0
+MISO
+Text Label 2350 1700 0    50   ~ 0
+MOSI
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607DC320
+P 2500 2100
+F 0 "TP?" V 2454 2288 50  0000 L CNN
+F 1 "TestPoint" V 2545 2288 50  0000 L CNN
+F 2 "" H 2700 2100 50  0001 C CNN
+F 3 "~" H 2700 2100 50  0001 C CNN
+	1    2500 2100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2500 2100 2350 2100
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607DE57B
+P 2500 2300
+F 0 "TP?" V 2454 2488 50  0000 L CNN
+F 1 "TestPoint" V 2545 2488 50  0000 L CNN
+F 2 "" H 2700 2300 50  0001 C CNN
+F 3 "~" H 2700 2300 50  0001 C CNN
+	1    2500 2300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2500 2300 2350 2300
+Text Label 2350 2100 0    50   ~ 0
+RadioCS
+Text Label 2350 2300 0    50   ~ 0
+SDCS
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607E4763
+P 1900 7050
+F 0 "TP?" V 1854 7238 50  0000 L CNN
+F 1 "TestPoint" V 1945 7238 50  0000 L CNN
+F 2 "" H 2100 7050 50  0001 C CNN
+F 3 "~" H 2100 7050 50  0001 C CNN
+	1    1900 7050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1900 7050 1750 7050
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607E6D53
+P 1900 7250
+F 0 "TP?" V 1854 7438 50  0000 L CNN
+F 1 "TestPoint" V 1945 7438 50  0000 L CNN
+F 2 "" H 2100 7250 50  0001 C CNN
+F 3 "~" H 2100 7250 50  0001 C CNN
+	1    1900 7250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1900 7250 1750 7250
+Text Label 1750 7050 0    50   ~ 0
+EN
+Text Label 1750 7250 0    50   ~ 0
+IO0
 $EndSCHEMATC

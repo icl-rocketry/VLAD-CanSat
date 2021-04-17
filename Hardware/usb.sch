@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 4
+Sheet 4 5
 Title ""
 Date ""
 Rev ""
@@ -439,5 +439,65 @@ Wire Wire Line
 Text HLabel 7650 3350 2    50   Output ~ 0
 RTS
 Text HLabel 7650 3750 2    50   Output ~ 0
+DTR
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607C08D3
+P 9200 2850
+F 0 "TP?" V 9154 3038 50  0000 L CNN
+F 1 "TestPoint" V 9245 3038 50  0000 L CNN
+F 2 "" H 9400 2850 50  0001 C CNN
+F 3 "~" H 9400 2850 50  0001 C CNN
+	1    9200 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607C0C71
+P 9200 3050
+F 0 "TP?" V 9154 3238 50  0000 L CNN
+F 1 "TestPoint" V 9245 3238 50  0000 L CNN
+F 2 "" H 9400 3050 50  0001 C CNN
+F 3 "~" H 9400 3050 50  0001 C CNN
+	1    9200 3050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9200 2850 9050 2850
+Wire Wire Line
+	9200 3050 9050 3050
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607C5A06
+P 9200 3250
+F 0 "TP?" V 9154 3438 50  0000 L CNN
+F 1 "TestPoint" V 9245 3438 50  0000 L CNN
+F 2 "" H 9400 3250 50  0001 C CNN
+F 3 "~" H 9400 3250 50  0001 C CNN
+	1    9200 3250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9200 3250 9050 3250
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607C6B8E
+P 9200 3450
+F 0 "TP?" V 9154 3638 50  0000 L CNN
+F 1 "TestPoint" V 9245 3638 50  0000 L CNN
+F 2 "" H 9400 3450 50  0001 C CNN
+F 3 "~" H 9400 3450 50  0001 C CNN
+	1    9200 3450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9200 3450 9050 3450
+Text HLabel 9050 2850 0    50   Input ~ 0
+RX
+Text HLabel 9050 3050 0    50   Output ~ 0
+TX
+Text HLabel 9050 3250 0    50   Output ~ 0
+RTS
+Text HLabel 9050 3450 0    50   Output ~ 0
 DTR
 $EndSCHEMATC
