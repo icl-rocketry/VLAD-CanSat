@@ -1,4 +1,4 @@
 (sym_lib_table
   (lib (name VLAD-rescue)(type Legacy)(uri ${KIPRJMOD}/VLAD-rescue.lib)(options "")(descr ""))
-  (lib (name 2021-04-13_17-29-21)(type Legacy)(uri "C:/Palash/Projects/ICLR/CanSat 20-21 VLAD/Git2/VLAD-CanSat/MAX1771/KiCAD/2021-04-13_17-29-21/2021-04-13_17-29-21.lib")(options "")(descr ""))
+  (lib (name 2021-04-13_17-29-21)(type Legacy)(uri ${KIPRJMOD}/MAX1771/KiCAD/2021-04-13_17-29-21/2021-04-13_17-29-21.lib)(options "")(descr ""))
 )
