@@ -299,7 +299,7 @@ AR Path="/60872C01" Ref="P?"  Part="1"
 AR Path="/608652D9/60872C01" Ref="P?"  Part="1" 
 F 0 "P?" H 3857 4567 50  0000 C CNN
 F 1 "USB_C_Plug_USB2.0" H 3857 4476 50  0000 C CNN
-F 2 "" H 3900 3700 50  0001 C CNN
+F 2 "Connector_USB:USB_C_Receptacle_GCT_USB4085" H 3900 3700 50  0001 C CNN
 F 3 "https://www.usb.org/sites/default/files/documents/usb_type-c.zip" H 3900 3700 50  0001 C CNN
 	1    3750 3700
 	1    0    0    -1  
