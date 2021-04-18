@@ -707,4 +707,51 @@ F 3 "~" H 2550 2900 50  0001 C CNN
 	1    2550 2900
 	0    1    1    0   
 $EndComp
+$Comp
+L Device:Buzzer BZ?
+U 1 1 607EA96B
+P 9050 5050
+F 0 "BZ?" V 9101 4863 50  0000 R CNN
+F 1 "Buzzer" V 9010 4863 50  0000 R CNN
+F 2 "" V 9025 5150 50  0001 C CNN
+F 3 "~" V 9025 5150 50  0001 C CNN
+	1    9050 5050
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9150 5150 9150 5250
+Wire Wire Line
+	8950 5150 8950 5200
+Wire Wire Line
+	8950 5200 8800 5200
+$Comp
+L Device:R_Small R?
+U 1 1 607F07A9
+P 8700 5200
+F 0 "R?" V 8504 5200 50  0000 C CNN
+F 1 "R_Small" V 8595 5200 50  0000 C CNN
+F 2 "" H 8700 5200 50  0001 C CNN
+F 3 "~" H 8700 5200 50  0001 C CNN
+	1    8700 5200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8600 5200 8300 5200
+$Comp
+L power:GND #PWR?
+U 1 1 607F3B2D
+P 9150 5250
+F 0 "#PWR?" H 9150 5000 50  0001 C CNN
+F 1 "GND" H 9155 5077 50  0000 C CNN
+F 2 "" H 9150 5250 50  0001 C CNN
+F 3 "" H 9150 5250 50  0001 C CNN
+	1    9150 5250
+	1    0    0    -1  
+$EndComp
+Text Label 8300 5200 0    50   ~ 0
+Buzzer
+Wire Wire Line
+	6750 4250 7000 4250
+Text Label 7000 4250 0    50   ~ 0
+Buzzer
 $EndSCHEMATC
