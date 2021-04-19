@@ -821,7 +821,7 @@ U 1 1 607FE864
 P 9350 2450
 F 0 "J1" H 9378 2426 50  0000 L CNN
 F 1 "BMP388" H 9378 2335 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 9350 2450 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical" H 9350 2450 50  0001 C CNN
 F 3 "~" H 9350 2450 50  0001 C CNN
 	1    9350 2450
 	1    0    0    -1  
