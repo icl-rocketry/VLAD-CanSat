@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:VLAD-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -144,7 +145,7 @@ U 1 1 606E40D7
 P 7500 3450
 F 0 "AE1" V 7454 3580 50  0000 L CNN
 F 1 "Antenna" V 7545 3580 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7500 3450 50  0001 C CNN
+F 2 "footprints:max1771cpa&plus_" H 7500 3450 50  0001 C CNN
 F 3 "~" H 7500 3450 50  0001 C CNN
 	1    7500 3450
 	0    1    1    0   
