@@ -84,50 +84,34 @@ Wire Wire Line
 $Comp
 L Device:D_Schottky D2
 U 1 1 607B6B59
-P 4100 750
-F 0 "D2" H 4100 966 50  0000 C CNN
-F 1 "D_Schottky" H 4100 875 50  0000 C CNN
-F 2 "Diode_SMD:D_0603_1608Metric" H 4100 750 50  0001 C CNN
-F 3 "~" H 4100 750 50  0001 C CNN
-	1    4100 750 
-	-1   0    0    1   
+P 3950 1000
+F 0 "D2" H 3950 1216 50  0000 C CNN
+F 1 "D_Schottky" H 3950 1125 50  0000 C CNN
+F 2 "Diode_SMD:D_0603_1608Metric" H 3950 1000 50  0001 C CNN
+F 3 "~" H 3950 1000 50  0001 C CNN
+	1    3950 1000
+	0    1    1    0   
 $EndComp
-Wire Wire Line
-	3950 750  3950 1250
-Connection ~ 3950 1250
 $Comp
 L Device:CP1 C1.1
 U 1 1 607A0DAB
 P 2950 1400
 F 0 "C1.1" H 3065 1446 50  0000 L CNN
 F 1 "68uF" H 3065 1355 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 2950 1400 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 2950 1400 50  0001 C CNN
 F 3 "~" H 2950 1400 50  0001 C CNN
 	1    2950 1400
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:CP1 C1.2
-U 1 1 607B8269
-P 4450 900
-F 0 "C1.2" H 4565 946 50  0000 L CNN
-F 1 "300uF" H 4565 855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 4450 900 50  0001 C CNN
-F 3 "~" H 4450 900 50  0001 C CNN
-	1    4450 900 
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4250 750  4450 750 
-$Comp
 L power:GND #PWR044
 U 1 1 607B9113
-P 4450 1050
-F 0 "#PWR044" H 4450 800 50  0001 C CNN
-F 1 "GND" H 4455 877 50  0000 C CNN
-F 2 "" H 4450 1050 50  0001 C CNN
-F 3 "" H 4450 1050 50  0001 C CNN
-	1    4450 1050
+P 4550 1150
+F 0 "#PWR044" H 4550 900 50  0001 C CNN
+F 1 "GND" H 4555 977 50  0000 C CNN
+F 2 "" H 4550 1150 50  0001 C CNN
+F 3 "" H 4550 1150 50  0001 C CNN
+	1    4550 1150
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -142,12 +126,9 @@ F 3 "~" H 5200 1100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4450 750  4950 750 
-Wire Wire Line
 	4950 750  4950 950 
 Wire Wire Line
 	4950 950  5200 950 
-Connection ~ 4450 750 
 $Comp
 L power:GND #PWR047
 U 1 1 607BB3BE
@@ -181,7 +162,6 @@ F 3 "" H 6950 750 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4950 750  6950 750 
-Connection ~ 4950 750 
 $Comp
 L Device:R RSense1
 U 1 1 607BD94D
@@ -236,7 +216,7 @@ U 1 1 607CCEAF
 P 2950 3900
 F 0 "C2.1" H 3065 3946 50  0000 L CNN
 F 1 "68uF" H 3065 3855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 2950 3900 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 2950 3900 50  0001 C CNN
 F 3 "~" H 2950 3900 50  0001 C CNN
 	1    2950 3900
 	1    0    0    -1  
@@ -276,30 +256,14 @@ Wire Wire Line
 $Comp
 L Device:D_Schottky D3
 U 1 1 607D4386
-P 4100 3250
-F 0 "D3" H 4100 3466 50  0000 C CNN
-F 1 "D_Schottky" H 4100 3375 50  0000 C CNN
-F 2 "Diode_SMD:D_0603_1608Metric" H 4100 3250 50  0001 C CNN
-F 3 "~" H 4100 3250 50  0001 C CNN
-	1    4100 3250
-	-1   0    0    1   
+P 3950 3500
+F 0 "D3" H 3950 3716 50  0000 C CNN
+F 1 "D_Schottky" H 3950 3625 50  0000 C CNN
+F 2 "Diode_SMD:D_0603_1608Metric" H 3950 3500 50  0001 C CNN
+F 3 "~" H 3950 3500 50  0001 C CNN
+	1    3950 3500
+	0    1    1    0   
 $EndComp
-Wire Wire Line
-	3950 3750 3950 3250
-Connection ~ 3950 3750
-$Comp
-L Device:CP1 C2.2
-U 1 1 607D5B4D
-P 4450 3400
-F 0 "C2.2" H 4565 3446 50  0000 L CNN
-F 1 "300uF" H 4565 3355 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 4450 3400 50  0001 C CNN
-F 3 "~" H 4450 3400 50  0001 C CNN
-	1    4450 3400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4250 3250 4450 3250
 $Comp
 L Device:C C2.3
 U 1 1 607D732D
@@ -312,12 +276,9 @@ F 3 "~" H 5200 3600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4450 3250 4950 3250
-Wire Wire Line
 	4950 3250 4950 3450
 Wire Wire Line
 	4950 3450 5200 3450
-Connection ~ 4450 3250
 $Comp
 L power:GND #PWR048
 U 1 1 607D93EF
@@ -342,7 +303,6 @@ F 3 "" H 6950 3250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4950 3250 6700 3250
-Connection ~ 4950 3250
 Wire Wire Line
 	4950 3450 4950 4000
 Wire Wire Line
@@ -549,12 +509,12 @@ $EndComp
 $Comp
 L power:GND #PWR045
 U 1 1 607EA56C
-P 4450 3550
-F 0 "#PWR045" H 4450 3300 50  0001 C CNN
-F 1 "GND" H 4455 3377 50  0000 C CNN
-F 2 "" H 4450 3550 50  0001 C CNN
-F 3 "" H 4450 3550 50  0001 C CNN
-	1    4450 3550
+P 4500 3650
+F 0 "#PWR045" H 4500 3400 50  0001 C CNN
+F 1 "GND" H 4505 3477 50  0000 C CNN
+F 2 "" H 4500 3650 50  0001 C CNN
+F 3 "" H 4500 3650 50  0001 C CNN
+	1    4500 3650
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -731,23 +691,12 @@ F 3 "~" H 1300 3750 50  0001 C CNN
 	1    1300 3750
 	1    0    0    -1  
 $EndComp
-$Comp
-L Analog_Switch:MAX40200AUK U4
-U 1 1 60A1DB12
-P 1900 4850
-F 0 "U4" H 1900 5217 50  0000 C CNN
-F 1 "MAX40200AUK" H 1900 5126 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-5" H 1900 5350 50  0001 C CNN
-F 3 "https://datasheets.maximintegrated.com/en/ds/MAX40200.pdf" H 1900 5350 50  0001 C CNN
-	1    1900 4850
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2050 3750 2050 4250
 Wire Wire Line
 	2050 4250 1500 4250
 Wire Wire Line
-	1500 4250 1500 4750
+	1500 4250 1500 4500
 Wire Wire Line
 	2300 4750 2300 3750
 Wire Wire Line
@@ -763,15 +712,178 @@ F 3 "" H 1900 5150 50  0001 C CNN
 	1    1900 5150
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	3950 1150 3950 1250
+Connection ~ 3950 1250
+Wire Wire Line
+	3950 850  3950 750 
+Connection ~ 4950 750 
 $Comp
-L power:GND #PWR0102
-U 1 1 60A2712E
-P 1500 4950
-F 0 "#PWR0102" H 1500 4700 50  0001 C CNN
-F 1 "GND" H 1505 4777 50  0000 C CNN
-F 2 "" H 1500 4950 50  0001 C CNN
-F 3 "" H 1500 4950 50  0001 C CNN
-	1    1500 4950
+L Device:CP1 C1.?
+U 1 1 60A60441
+P 4450 900
+F 0 "C1.?" H 4565 946 50  0000 L CNN
+F 1 "68uF" H 4565 855 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4450 900 50  0001 C CNN
+F 3 "~" H 4450 900 50  0001 C CNN
+	1    4450 900 
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:CP1 C1.?
+U 1 1 60A60F44
+P 4650 900
+F 0 "C1.?" H 4765 946 50  0000 L CNN
+F 1 "68uF" H 4765 855 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4650 900 50  0001 C CNN
+F 3 "~" H 4650 900 50  0001 C CNN
+	1    4650 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C1.?
+U 1 1 60A613E6
+P 4850 900
+F 0 "C1.?" H 4965 946 50  0000 L CNN
+F 1 "68uF" H 4965 855 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4850 900 50  0001 C CNN
+F 3 "~" H 4850 900 50  0001 C CNN
+	1    4850 900 
+	1    0    0    -1  
+$EndComp
+Connection ~ 4850 750 
+Wire Wire Line
+	4850 750  4950 750 
+Connection ~ 4650 750 
+Wire Wire Line
+	4650 750  4850 750 
+Connection ~ 4450 750 
+Wire Wire Line
+	4450 750  4650 750 
+Wire Wire Line
+	3950 750  4250 750 
+$Comp
+L Device:CP1 C1.?
+U 1 1 60A668C7
+P 4250 900
+F 0 "C1.?" H 4365 946 50  0000 L CNN
+F 1 "68uF" H 4365 855 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4250 900 50  0001 C CNN
+F 3 "~" H 4250 900 50  0001 C CNN
+	1    4250 900 
+	1    0    0    -1  
+$EndComp
+Connection ~ 4250 750 
+Wire Wire Line
+	4250 750  4450 750 
+Wire Wire Line
+	4250 1050 4450 1050
+Connection ~ 4450 1050
+Wire Wire Line
+	4450 1050 4550 1050
+Connection ~ 4650 1050
+Wire Wire Line
+	4650 1050 4850 1050
+Wire Wire Line
+	4550 1150 4550 1050
+Connection ~ 4550 1050
+Wire Wire Line
+	4550 1050 4650 1050
+$Comp
+L Analog_Switch:MAX40200AUK U4
+U 1 1 60A1DB12
+P 1900 4850
+F 0 "U4" H 1900 5217 50  0000 C CNN
+F 1 "MAX40200AUK" H 1900 5126 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-5" H 1900 5350 50  0001 C CNN
+F 3 "https://datasheets.maximintegrated.com/en/ds/MAX40200.pdf" H 1900 5350 50  0001 C CNN
+	1    1900 4850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1500 4500 1200 4500
+Wire Wire Line
+	1200 4500 1200 4950
+Wire Wire Line
+	1200 4950 1500 4950
+Connection ~ 1500 4500
+Wire Wire Line
+	1500 4500 1500 4750
+Wire Wire Line
+	3950 3650 3950 3750
+Connection ~ 3950 3750
+Wire Wire Line
+	3950 3350 3950 3250
+Wire Wire Line
+	3950 3250 4200 3250
+Connection ~ 4950 3250
+$Comp
+L Device:CP1 C1.?
+U 1 1 60A97AFD
+P 4800 3400
+F 0 "C1.?" H 4915 3446 50  0000 L CNN
+F 1 "68uF" H 4915 3355 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4800 3400 50  0001 C CNN
+F 3 "~" H 4800 3400 50  0001 C CNN
+	1    4800 3400
+	1    0    0    -1  
+$EndComp
+Connection ~ 4800 3250
+Wire Wire Line
+	4800 3250 4950 3250
+$Comp
+L Device:CP1 C1.?
+U 1 1 60A993A5
+P 4600 3400
+F 0 "C1.?" H 4715 3446 50  0000 L CNN
+F 1 "68uF" H 4715 3355 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4600 3400 50  0001 C CNN
+F 3 "~" H 4600 3400 50  0001 C CNN
+	1    4600 3400
+	1    0    0    -1  
+$EndComp
+Connection ~ 4600 3250
+Wire Wire Line
+	4600 3250 4800 3250
+$Comp
+L Device:CP1 C1.?
+U 1 1 60A997C6
+P 4400 3400
+F 0 "C1.?" H 4515 3446 50  0000 L CNN
+F 1 "68uF" H 4515 3355 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4400 3400 50  0001 C CNN
+F 3 "~" H 4400 3400 50  0001 C CNN
+	1    4400 3400
+	1    0    0    -1  
+$EndComp
+Connection ~ 4400 3250
+Wire Wire Line
+	4400 3250 4600 3250
+$Comp
+L Device:CP1 C1.?
+U 1 1 60A99BF5
+P 4200 3400
+F 0 "C1.?" H 4315 3446 50  0000 L CNN
+F 1 "68uF" H 4315 3355 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4200 3400 50  0001 C CNN
+F 3 "~" H 4200 3400 50  0001 C CNN
+	1    4200 3400
+	1    0    0    -1  
+$EndComp
+Connection ~ 4200 3250
+Wire Wire Line
+	4200 3250 4400 3250
+Wire Wire Line
+	4200 3550 4400 3550
+Connection ~ 4400 3550
+Wire Wire Line
+	4400 3550 4500 3550
+Connection ~ 4600 3550
+Wire Wire Line
+	4600 3550 4800 3550
+Wire Wire Line
+	4500 3650 4500 3550
+Connection ~ 4500 3550
+Wire Wire Line
+	4500 3550 4600 3550
 $EndSCHEMATC
