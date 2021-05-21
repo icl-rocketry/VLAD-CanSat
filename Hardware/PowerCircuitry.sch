@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:VLAD-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -54,7 +55,7 @@ U 1 1 6079A4BB
 P 3300 1250
 F 0 "L1" V 3490 1250 50  0000 C CNN
 F 1 "22uH" V 3399 1250 50  0000 C CNN
-F 2 "Inductor_SMD:L_0603_1608Metric" H 3300 1250 50  0001 C CNN
+F 2 "Inductor_THT:L_Toroid_Vertical_L16.0mm_W8.0mm_P7.62mm" H 3300 1250 50  0001 C CNN
 F 3 "~" H 3300 1250 50  0001 C CNN
 	1    3300 1250
 	0    -1   -1   0   
@@ -86,7 +87,7 @@ U 1 1 607B6B59
 P 3950 1000
 F 0 "D2" H 3950 1216 50  0000 C CNN
 F 1 "D_Schottky" H 3950 1125 50  0000 C CNN
-F 2 "Diode_SMD:D_0603_1608Metric" H 3950 1000 50  0001 C CNN
+F 2 "Diode_THT:D_DO-34_SOD68_P7.62mm_Horizontal" H 3950 1000 50  0001 C CNN
 F 3 "~" H 3950 1000 50  0001 C CNN
 	1    3950 1000
 	0    1    1    0   
@@ -237,7 +238,7 @@ U 1 1 607CEF0C
 P 3300 3750
 F 0 "L2" V 3490 3750 50  0000 C CNN
 F 1 "22uH" V 3399 3750 50  0000 C CNN
-F 2 "Inductor_SMD:L_0603_1608Metric" H 3300 3750 50  0001 C CNN
+F 2 "Inductor_THT:L_Toroid_Vertical_L16.0mm_W8.0mm_P7.62mm" H 3300 3750 50  0001 C CNN
 F 3 "~" H 3300 3750 50  0001 C CNN
 	1    3300 3750
 	0    -1   -1   0   
@@ -258,7 +259,7 @@ U 1 1 607D4386
 P 3950 3500
 F 0 "D3" H 3950 3716 50  0000 C CNN
 F 1 "D_Schottky" H 3950 3625 50  0000 C CNN
-F 2 "Diode_SMD:D_0603_1608Metric" H 3950 3500 50  0001 C CNN
+F 2 "Diode_THT:D_DO-34_SOD68_P7.62mm_Horizontal" H 3950 3500 50  0001 C CNN
 F 3 "~" H 3950 3500 50  0001 C CNN
 	1    3950 3500
 	0    1    1    0   
@@ -415,12 +416,9 @@ Connection ~ 4450 5500
 Wire Wire Line
 	4450 5500 3700 5500
 Connection ~ 2950 3750
-Wire Wire Line
-	2450 1250 2950 1250
 Connection ~ 2450 3750
 Wire Wire Line
 	2450 3750 2950 3750
-Connection ~ 2950 1250
 Wire Wire Line
 	2450 3750 2450 6500
 $Comp
@@ -567,8 +565,6 @@ Wire Wire Line
 	1000 3750 1100 3750
 Wire Wire Line
 	1500 3750 2050 3750
-Wire Wire Line
-	2450 1250 2450 3750
 $Comp
 L Mechanical:MountingHole_Pad H1
 U 1 1 6090A199
@@ -676,8 +672,6 @@ F 3 "" H 9050 3100 50  0001 C CNN
 	1    9050 3100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2450 6500 3200 6500
 Connection ~ 1100 3750
 $Comp
 L Switch:SW_SPST SW3
@@ -685,7 +679,7 @@ U 1 1 608DCB23
 P 1300 3750
 F 0 "SW3" H 1300 3985 50  0000 C CNN
 F 1 "SW_SPST" H 1300 3894 50  0000 C CNN
-F 2 "Button_Switch_SMD:SW_DIP_SPSTx01_Slide_9.78x4.72mm_W8.61mm_P2.54mm" H 1300 3750 50  0001 C CNN
+F 2 "Button_Switch_THT:SW_DIP_SPSTx01_Slide_9.78x4.72mm_W7.62mm_P2.54mm" H 1300 3750 50  0001 C CNN
 F 3 "~" H 1300 3750 50  0001 C CNN
 	1    1300 3750
 	1    0    0    -1  
@@ -885,4 +879,39 @@ Wire Wire Line
 Connection ~ 4500 3550
 Wire Wire Line
 	4500 3550 4600 3550
+$Comp
+L Transistor_BJT:2N2219 Q7
+U 1 1 60A91052
+P 2550 3250
+F 0 "Q7" H 2741 3204 50  0000 L CNN
+F 1 "2N2219" H 2741 3295 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 2750 3175 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/2N2219-D.PDF" H 2550 3250 50  0001 L CNN
+	1    2550 3250
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2450 3450 2450 3750
+Wire Wire Line
+	2450 3050 2450 1250
+Wire Wire Line
+	2450 1250 2950 1250
+Connection ~ 2950 1250
+Text GLabel 2750 3250 2    50   Input ~ 0
+12VBusSwitch
+$Comp
+L Device:R R21
+U 1 1 60AA8F0F
+P 2800 6500
+F 0 "R21" V 2593 6500 50  0000 C CNN
+F 1 "R" V 2684 6500 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P1.90mm_Vertical" V 2730 6500 50  0001 C CNN
+F 3 "~" H 2800 6500 50  0001 C CNN
+	1    2800 6500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2450 6500 2650 6500
+Wire Wire Line
+	2950 6500 3200 6500
 $EndSCHEMATC
