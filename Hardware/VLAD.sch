@@ -15,17 +15,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L VLAD-rescue:ESP32-WROOM-32-RF_Module U1
-U 1 1 6068A42E
-P 6150 3750
-F 0 "U1" H 6150 5331 50  0000 C CNN
-F 1 "ESP32-WROOM-32" H 6150 5240 50  0000 C CNN
-F 2 "RF_Module:ESP32-WROOM-32" H 6150 2250 50  0001 C CNN
-F 3 "https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf" H 5850 3800 50  0001 C CNN
-	1    6150 3750
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR07
 U 1 1 6068B2EA
 P 6150 5150
@@ -36,12 +25,6 @@ F 3 "" H 6150 5150 50  0001 C CNN
 	1    6150 5150
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6750 3750 7000 3750
-Wire Wire Line
-	6750 3850 7000 3850
-Wire Wire Line
-	6750 4150 7000 4150
 $Sheet
 S 800  1750 550  550 
 U 6068D50F
@@ -166,18 +149,12 @@ Text Label 1450 1100 0    50   ~ 0
 MISO
 Text Label 1450 1000 0    50   ~ 0
 MOSI
-Wire Wire Line
-	6750 3150 7000 3150
 Text Label 7000 3150 0    50   ~ 0
 RadioDone
 Text Label 1450 1400 0    50   ~ 0
 RadioDone
-Wire Wire Line
-	6750 3350 7000 3350
 Text Label 7000 3350 0    50   ~ 0
 RadioReset
-Wire Wire Line
-	6750 3050 7000 3050
 Text Label 7000 3050 0    50   ~ 0
 RadioCS
 Text Label 1450 1300 0    50   ~ 0
@@ -208,12 +185,8 @@ Text Label 1450 2100 0    50   ~ 0
 MISO
 Text Label 1450 2200 0    50   ~ 0
 SDCS
-Wire Wire Line
-	6750 3450 7000 3450
 Text Label 7000 3450 0    50   ~ 0
 SDCS
-Wire Wire Line
-	6750 2750 7550 2750
 Wire Wire Line
 	7550 2750 7550 2850
 $Comp
@@ -245,10 +218,6 @@ Wire Wire Line
 	6150 1750 6150 2100
 Wire Wire Line
 	6650 1750 6650 2100
-Wire Wire Line
-	6750 2850 7000 2850
-Wire Wire Line
-	6750 2650 7000 2650
 Text Label 7000 2850 0    50   ~ 0
 SerialRx
 $Sheet
@@ -751,14 +720,8 @@ F 3 "" H 9150 5250 50  0001 C CNN
 $EndComp
 Text Label 8300 5200 0    50   ~ 0
 Buzzer
-Wire Wire Line
-	6750 4250 7000 4250
 Text Label 7000 4250 0    50   ~ 0
 Buzzer
-Wire Wire Line
-	6750 4350 7000 4350
-Wire Wire Line
-	6750 4450 7000 4450
 Text Label 7000 4350 0    50   ~ 0
 SDA
 Text Label 7000 4450 0    50   ~ 0
@@ -874,13 +837,8 @@ NoConn ~ 6750 2950
 NoConn ~ 6750 3250
 NoConn ~ 6750 3550
 NoConn ~ 6750 3650
-NoConn ~ 6750 3950
 NoConn ~ 6750 4050
-NoConn ~ 6750 4550
-NoConn ~ 6750 4650
-NoConn ~ 6750 4750
 NoConn ~ 6750 4850
-NoConn ~ 7050 3950
 $Comp
 L power:+6V #PWR0102
 U 1 1 60A0C2D4
@@ -914,4 +872,51 @@ F 3 "~" H 10000 2100 50  0001 C CNN
 	1    10000 2100
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	6750 4450 7000 4450
+Wire Wire Line
+	6750 4350 7000 4350
+Wire Wire Line
+	6750 4250 7000 4250
+Wire Wire Line
+	6750 4150 7000 4150
+Wire Wire Line
+	6750 3850 7000 3850
+Wire Wire Line
+	6750 3750 7000 3750
+Wire Wire Line
+	6750 3450 7000 3450
+Wire Wire Line
+	6750 3350 7000 3350
+Wire Wire Line
+	6750 3150 7000 3150
+Wire Wire Line
+	6750 3050 7000 3050
+Wire Wire Line
+	6750 2850 7000 2850
+Wire Wire Line
+	6750 2750 7550 2750
+Wire Wire Line
+	6750 2650 7000 2650
+NoConn ~ 6750 4550
+$Comp
+L VLAD-rescue:ESP32-WROOM-32-RF_Module U1
+U 1 1 6068A42E
+P 6150 3750
+F 0 "U1" H 6150 5331 50  0000 C CNN
+F 1 "ESP32-WROOM-32" H 6150 5240 50  0000 C CNN
+F 2 "RF_Module:ESP32-WROOM-32" H 6150 2250 50  0001 C CNN
+F 3 "https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf" H 5850 3800 50  0001 C CNN
+	1    6150 3750
+	1    0    0    -1  
+$EndComp
+Text GLabel 6750 4650 2    50   Input ~ 0
+12VBusSwitch
+NoConn ~ 6750 4750
+Text Label 7000 3950 0    50   ~ 0
+ServoPin
+Text Label 10200 2000 0    50   ~ 0
+ServoPin
+Wire Wire Line
+	6750 3950 7000 3950
 $EndSCHEMATC
