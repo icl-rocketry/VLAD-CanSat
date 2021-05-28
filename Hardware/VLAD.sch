@@ -910,10 +910,10 @@ F 3 "https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_
 	1    6150 3750
 	1    0    0    -1  
 $EndComp
-Text GLabel 6750 4650 2    50   Input ~ 0
+Text GLabel 7000 3950 2    50   Input ~ 0
 12VBusSwitch
 NoConn ~ 6750 4750
-Text Label 7000 3950 0    50   ~ 0
+Text Label 6750 4650 0    50   ~ 0
 ServoPin
 Text Label 10200 2000 0    50   ~ 0
 ServoPin
