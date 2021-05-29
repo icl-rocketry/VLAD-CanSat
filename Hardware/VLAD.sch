@@ -380,17 +380,6 @@ Wire Wire Line
 	1750 5600 1750 5700
 Wire Wire Line
 	2200 5700 2300 5700
-$Comp
-L Switch:SW_Push SW1
-U 1 1 609AA0D6
-P 1450 6200
-F 0 "SW1" H 1450 6485 50  0000 C CNN
-F 1 "SW_Push" H 1450 6394 50  0000 C CNN
-F 2 "Button_Switch_SMD:SW_Push_1P1T_NO_6x6mm_H9.5mm" H 1450 6400 50  0001 C CNN
-F 3 "~" H 1450 6400 50  0001 C CNN
-	1    1450 6200
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	1200 6200 1200 6500
 Wire Wire Line
@@ -490,17 +479,6 @@ Wire Wire Line
 Connection ~ 2400 6500
 Text Label 3300 6200 0    50   ~ 0
 EN
-$Comp
-L Switch:SW_Push SW2
-U 1 1 609D49CF
-P 2650 6200
-F 0 "SW2" H 2650 6485 50  0000 C CNN
-F 1 "SW_Push" H 2650 6394 50  0000 C CNN
-F 2 "Button_Switch_SMD:SW_Push_1P1T_NO_6x6mm_H9.5mm" H 2650 6400 50  0001 C CNN
-F 3 "~" H 2650 6400 50  0001 C CNN
-	1    2650 6200
-	1    0    0    -1  
-$EndComp
 Text Notes 750  3700 0    50   ~ 0
 Auto Programmer, for how this works see this link:\nhttps://pcbartists.com/design/esp32-cp2102-programmer-schematic/
 Text Notes 700  6450 0    50   ~ 0
@@ -919,4 +897,26 @@ Text Label 10200 2000 0    50   ~ 0
 ServoPin
 Wire Wire Line
 	6750 3950 7000 3950
+$Comp
+L Jumper:Jumper_2_Open JP2
+U 1 1 60B2C548
+P 1450 6200
+F 0 "JP2" H 1450 6435 50  0000 C CNN
+F 1 "Jumper_2_Open" H 1450 6344 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1450 6200 50  0001 C CNN
+F 3 "~" H 1450 6200 50  0001 C CNN
+	1    1450 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:Jumper_2_Open JP3
+U 1 1 60B2CD42
+P 2650 6200
+F 0 "JP3" H 2650 6435 50  0000 C CNN
+F 1 "Jumper_2_Open" H 2650 6344 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2650 6200 50  0001 C CNN
+F 3 "~" H 2650 6200 50  0001 C CNN
+	1    2650 6200
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
