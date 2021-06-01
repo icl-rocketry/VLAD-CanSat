@@ -239,28 +239,6 @@ SerialTx
 Text Label 1450 2850 0    50   ~ 0
 SerialRx
 $Comp
-L Transistor_BJT:S8050 Q1
-U 1 1 6093351E
-P 2350 4100
-F 0 "Q1" H 2540 4146 50  0000 L CNN
-F 1 "S8050" H 2540 4055 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-92_Inline" H 2550 4025 50  0001 L CIN
-F 3 "http://www.unisonic.com.tw/datasheet/S8050.pdf" H 2350 4100 50  0001 L CNN
-	1    2350 4100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Transistor_BJT:S8050 Q2
-U 1 1 60938289
-P 2350 4800
-F 0 "Q2" H 2540 4754 50  0000 L CNN
-F 1 "S8050" H 2540 4845 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-92_Inline" H 2550 4725 50  0001 L CIN
-F 3 "http://www.unisonic.com.tw/datasheet/S8050.pdf" H 2350 4800 50  0001 L CNN
-	1    2350 4800
-	1    0    0    1   
-$EndComp
-$Comp
 L Device:R_Small R2
 U 1 1 60938B48
 P 1900 4100
@@ -918,5 +896,27 @@ F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2650 6200 50 
 F 3 "~" H 2650 6200 50  0001 C CNN
 	1    2650 6200
 	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_BJT:MMDT2222A Q2
+U 1 1 60B6FFE0
+P 2350 4800
+F 0 "Q2" H 2540 4754 50  0000 L CNN
+F 1 "MMDT2222A" H 2540 4845 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 2550 4900 50  0001 C CNN
+F 3 "http://www.diodes.com/_files/datasheets/ds30125.pdf" H 2350 4800 50  0001 C CNN
+	1    2350 4800
+	1    0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:MMDT2222A Q1
+U 1 1 60B80B3B
+P 2350 4100
+F 0 "Q1" H 2540 4054 50  0000 L CNN
+F 1 "MMDT2222A" H 2540 4145 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 2550 4200 50  0001 C CNN
+F 3 "http://www.diodes.com/_files/datasheets/ds30125.pdf" H 2350 4100 50  0001 C CNN
+	1    2350 4100
+	1    0    0    1   
 $EndComp
 $EndSCHEMATC
