@@ -898,17 +898,6 @@ F 3 "~" H 2650 6200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_BJT:MMDT2222A Q2
-U 1 1 60B6FFE0
-P 2350 4800
-F 0 "Q2" H 2540 4754 50  0000 L CNN
-F 1 "MMDT2222A" H 2540 4845 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 2550 4900 50  0001 C CNN
-F 3 "http://www.diodes.com/_files/datasheets/ds30125.pdf" H 2350 4800 50  0001 C CNN
-	1    2350 4800
-	1    0    0    1   
-$EndComp
-$Comp
 L Transistor_BJT:MMDT2222A Q1
 U 1 1 60B80B3B
 P 2350 4100
@@ -917,6 +906,17 @@ F 1 "MMDT2222A" H 2540 4145 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 2550 4200 50  0001 C CNN
 F 3 "http://www.diodes.com/_files/datasheets/ds30125.pdf" H 2350 4100 50  0001 C CNN
 	1    2350 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_BJT:MMDT2222A Q1
+U 2 1 60BEDD25
+P 2350 4800
+F 0 "Q1" H 2540 4754 50  0000 L CNN
+F 1 "MMDT2222A" H 2540 4845 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 2550 4900 50  0001 C CNN
+F 3 "http://www.diodes.com/_files/datasheets/ds30125.pdf" H 2350 4800 50  0001 C CNN
+	2    2350 4800
 	1    0    0    1   
 $EndComp
 $EndSCHEMATC
