@@ -44,7 +44,7 @@ U 1 1 6075F38E
 P 4150 2050
 F 0 "12VBoostConverter1" H 5350 2437 60  0000 C CNN
 F 1 "max1771cpa+" H 5350 2331 60  0000 C CNN
-F 2 "footprints:max1771cpa&plus_" H 5350 2290 60  0001 C CNN
+F 2 "iclr:MAX1771CSA&plus_" H 5350 2290 60  0001 C CNN
 F 3 "" H 4150 2050 60  0000 C CNN
 	1    4150 2050
 	1    0    0    -1  
@@ -89,17 +89,6 @@ F 2 "Diode_SMD:D_SOD-123F" H 3950 1000 50  0001 C CNN
 F 3 "~" H 3950 1000 50  0001 C CNN
 	1    3950 1000
 	0    1    1    0   
-$EndComp
-$Comp
-L Device:CP1 C1.1
-U 1 1 607A0DAB
-P 2600 3450
-F 0 "C1.1" H 2715 3496 50  0000 L CNN
-F 1 "68uF" H 2715 3405 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 2600 3450 50  0001 C CNN
-F 3 "~" H 2600 3450 50  0001 C CNN
-	1    2600 3450
-	0    -1   -1   0   
 $EndComp
 $Comp
 L power:GND #PWR044
@@ -208,17 +197,6 @@ F 3 "" H 3700 2250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3700 2250 4150 2250
-$Comp
-L Device:CP1 C2.1
-U 1 1 607CCEAF
-P 2950 3900
-F 0 "C2.1" H 3065 3946 50  0000 L CNN
-F 1 "68uF" H 3065 3855 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 2950 3900 50  0001 C CNN
-F 3 "~" H 2950 3900 50  0001 C CNN
-	1    2950 3900
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:GND #PWR037
 U 1 1 607CE63A
@@ -474,7 +452,7 @@ U 1 1 6075E3BF
 P 4150 4550
 F 0 "6VBoostConverter1" H 5350 4937 60  0000 C CNN
 F 1 "max1771cpa+" H 5350 4831 60  0000 C CNN
-F 2 "footprints:max1771cpa&plus_" H 5350 4790 60  0001 C CNN
+F 2 "iclr:MAX1771CSA&plus_" H 5350 4790 60  0001 C CNN
 F 3 "" H 4150 4550 60  0000 C CNN
 	1    4150 4550
 	1    0    0    -1  
@@ -676,39 +654,6 @@ Connection ~ 3950 1250
 Wire Wire Line
 	3950 850  3950 750 
 Connection ~ 4950 750 
-$Comp
-L Device:CP1 C1.7
-U 1 1 60A60441
-P 4450 900
-F 0 "C1.7" H 4565 946 50  0000 L CNN
-F 1 "68uF" H 4565 855 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4450 900 50  0001 C CNN
-F 3 "~" H 4450 900 50  0001 C CNN
-	1    4450 900 
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:CP1 C1.9
-U 1 1 60A60F44
-P 4650 900
-F 0 "C1.9" H 4765 946 50  0000 L CNN
-F 1 "68uF" H 4765 855 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4650 900 50  0001 C CNN
-F 3 "~" H 4650 900 50  0001 C CNN
-	1    4650 900 
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:CP1 C1.11
-U 1 1 60A613E6
-P 4850 900
-F 0 "C1.11" H 4965 946 50  0000 L CNN
-F 1 "68uF" H 4965 855 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4850 900 50  0001 C CNN
-F 3 "~" H 4850 900 50  0001 C CNN
-	1    4850 900 
-	1    0    0    -1  
-$EndComp
 Connection ~ 4850 750 
 Wire Wire Line
 	4850 750  4950 750 
@@ -720,17 +665,6 @@ Wire Wire Line
 	4450 750  4650 750 
 Wire Wire Line
 	3950 750  4250 750 
-$Comp
-L Device:CP1 C1.5
-U 1 1 60A668C7
-P 4250 900
-F 0 "C1.5" H 4365 946 50  0000 L CNN
-F 1 "68uF" H 4365 855 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4250 900 50  0001 C CNN
-F 3 "~" H 4250 900 50  0001 C CNN
-	1    4250 900 
-	1    0    0    -1  
-$EndComp
 Connection ~ 4250 750 
 Wire Wire Line
 	4250 750  4450 750 
@@ -775,59 +709,15 @@ Wire Wire Line
 Wire Wire Line
 	3950 3250 4200 3250
 Connection ~ 4950 3250
-$Comp
-L Device:CP1 C1.10
-U 1 1 60A97AFD
-P 4800 3400
-F 0 "C1.10" H 4915 3446 50  0000 L CNN
-F 1 "68uF" H 4915 3355 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4800 3400 50  0001 C CNN
-F 3 "~" H 4800 3400 50  0001 C CNN
-	1    4800 3400
-	1    0    0    -1  
-$EndComp
 Connection ~ 4800 3250
 Wire Wire Line
 	4800 3250 4950 3250
-$Comp
-L Device:CP1 C1.8
-U 1 1 60A993A5
-P 4600 3400
-F 0 "C1.8" H 4715 3446 50  0000 L CNN
-F 1 "68uF" H 4715 3355 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4600 3400 50  0001 C CNN
-F 3 "~" H 4600 3400 50  0001 C CNN
-	1    4600 3400
-	1    0    0    -1  
-$EndComp
 Connection ~ 4600 3250
 Wire Wire Line
 	4600 3250 4800 3250
-$Comp
-L Device:CP1 C1.6
-U 1 1 60A997C6
-P 4400 3400
-F 0 "C1.6" H 4515 3446 50  0000 L CNN
-F 1 "68uF" H 4515 3355 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4400 3400 50  0001 C CNN
-F 3 "~" H 4400 3400 50  0001 C CNN
-	1    4400 3400
-	1    0    0    -1  
-$EndComp
 Connection ~ 4400 3250
 Wire Wire Line
 	4400 3250 4600 3250
-$Comp
-L Device:CP1 C1.2
-U 1 1 60A99BF5
-P 4200 3400
-F 0 "C1.2" H 4315 3446 50  0000 L CNN
-F 1 "68uF" H 4315 3355 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4200 3400 50  0001 C CNN
-F 3 "~" H 4200 3400 50  0001 C CNN
-	1    4200 3400
-	1    0    0    -1  
-$EndComp
 Connection ~ 4200 3250
 Wire Wire Line
 	4200 3250 4400 3250
@@ -924,5 +814,115 @@ F 2 "Package_TO_SOT_SMD:SOT-23" H 4350 4450 50  0001 C CNN
 F 3 "~" H 4150 4350 50  0001 C CNN
 	1    4150 4350
 	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:CP1 C1.10
+U 1 1 60A97AFD
+P 4800 3400
+F 0 "C1.10" H 4915 3446 50  0000 L CNN
+F 1 "68uF" H 4915 3355 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4800 3400 50  0001 C CNN
+F 3 "~" H 4800 3400 50  0001 C CNN
+	1    4800 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C1.8
+U 1 1 60A993A5
+P 4600 3400
+F 0 "C1.8" H 4715 3446 50  0000 L CNN
+F 1 "68uF" H 4715 3355 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4600 3400 50  0001 C CNN
+F 3 "~" H 4600 3400 50  0001 C CNN
+	1    4600 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C1.6
+U 1 1 60A997C6
+P 4400 3400
+F 0 "C1.6" H 4515 3446 50  0000 L CNN
+F 1 "68uF" H 4515 3355 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4400 3400 50  0001 C CNN
+F 3 "~" H 4400 3400 50  0001 C CNN
+	1    4400 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C1.2
+U 1 1 60A99BF5
+P 4200 3400
+F 0 "C1.2" H 4315 3446 50  0000 L CNN
+F 1 "68uF" H 4315 3355 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4200 3400 50  0001 C CNN
+F 3 "~" H 4200 3400 50  0001 C CNN
+	1    4200 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C2.1
+U 1 1 607CCEAF
+P 2950 3900
+F 0 "C2.1" H 3065 3946 50  0000 L CNN
+F 1 "68uF" H 3065 3855 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 2950 3900 50  0001 C CNN
+F 3 "~" H 2950 3900 50  0001 C CNN
+	1    2950 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C1.1
+U 1 1 607A0DAB
+P 2600 3450
+F 0 "C1.1" H 2715 3496 50  0000 L CNN
+F 1 "68uF" H 2715 3405 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 2600 3450 50  0001 C CNN
+F 3 "~" H 2600 3450 50  0001 C CNN
+	1    2600 3450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:CP1 C1.11
+U 1 1 60A613E6
+P 4850 900
+F 0 "C1.11" H 4965 946 50  0000 L CNN
+F 1 "68uF" H 4965 855 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4850 900 50  0001 C CNN
+F 3 "~" H 4850 900 50  0001 C CNN
+	1    4850 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C1.9
+U 1 1 60A60F44
+P 4650 900
+F 0 "C1.9" H 4765 946 50  0000 L CNN
+F 1 "68uF" H 4765 855 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4650 900 50  0001 C CNN
+F 3 "~" H 4650 900 50  0001 C CNN
+	1    4650 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C1.7
+U 1 1 60A60441
+P 4450 900
+F 0 "C1.7" H 4565 946 50  0000 L CNN
+F 1 "68uF" H 4565 855 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4450 900 50  0001 C CNN
+F 3 "~" H 4450 900 50  0001 C CNN
+	1    4450 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C1.5
+U 1 1 60A668C7
+P 4250 900
+F 0 "C1.5" H 4365 946 50  0000 L CNN
+F 1 "68uF" H 4365 855 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 4250 900 50  0001 C CNN
+F 3 "~" H 4250 900 50  0001 C CNN
+	1    4250 900 
+	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
