@@ -2,21 +2,56 @@
 #include <barom.h>
 #include "BMP388_DEV.h"
 
-BMP388_DEV bmp388;
-uint8_t altitude;
+#define numberofmeasurements 10
+barom::barom() {
+    BMP388_DEV bmp388;
+    uint8_t altitude;
+    bool FIFOenabled = false;
+    uint8_t altitudemeasurements[numberofmeasurements];
+    uint8_t lastHasLandedTimeCheck = 0;
+    if(bmp388.begin()){
+        bmp388.startNormalConversion();
+        bmp388.setTimeStandby(TIME_STANDBY_80MS);
+        //doesnt have 100ms standby
+    } else { Serial.println('Errror starting bmp388');}
+    //starts storage of data, could put this in the hasLanded loop and run it once.
+}
 
-uint8_t getAltitude() {
+
+uint8_t barom::getAltitude() {
     if(bmp388.getAltitude(altitude)) {
         return altitude;
-    }
+    } else {Serial.print('Error getting altitude');}
 }
 
-bool startDetection() {
-    if(bmp388.begin()){
-        return true;
-    }
-}
 
-bool hasLanded() {
-    //not entirely sure how to do this might have to get called multiple times or use a millis and a variable for previous change
+bool barom::hasLanded() {
+    if (FIFOenabled = false){
+        bmp388.enableFIFO(PRESS_DISABLED,ALT_ENABLED,TIME_DISABLED,SUBSAMPLING_OFF,FILTERED,STOP_ON_FULL_DISABLED);
+        bmp388.setFIFONoOfMeasurements(numberofmeasurements);
+        FIFOenabled = true;
+    }
+    if ((millis()-lastHasLandedTimeCheck)>((numberofmeasurements+1)*80)){
+        lastHasLandedTimeCheck = millis();
+        /*
+        // this checks all measurements for a difference in 3m
+        if(bmp388.getFIFOData(temperature, pressure, altitude, sensorTime)){ //have to change to not have those inputs
+            for (uint8_t i = 0, i < numberofmeasurements, i++){
+                for (uint8_t j = 0, j<i, j++){
+                    if(abs(altitudemeasurements[j]-altitudemeasurements[i])>3){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        // this checks only the first and last, less run time, less certain probably
+            if(bmp388.getFIFOData(temperature, pressure, altitudemeasurements, sensorTime)){ //have to change to not have those inputs
+                if(abs(altitudemeasurements[numberofmeasurements-1]-altitudemeasurements[0])>3){
+                    return false;
+                }
+                return true;
+            }
+        */
+    }
 }
