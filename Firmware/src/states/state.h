@@ -13,6 +13,7 @@ class State {
   public:
     virtual void initialise();
     virtual State* update();
+    virtual void exitState();
 };
 
 #endif

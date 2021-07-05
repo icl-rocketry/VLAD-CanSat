@@ -14,6 +14,7 @@ class stateMachine {
   public:
     void initialise(State* initStatePtr);
     void update();
+    void exitState();
     void changeState(State* newStatePtr);
 
   private:

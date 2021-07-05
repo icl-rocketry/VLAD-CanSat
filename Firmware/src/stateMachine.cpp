@@ -16,6 +16,7 @@ void stateMachine::update() {
   State* newStatePtr = _currStatePtr -> update();
 
   if (newStatePtr != _currStatePtr) {
+    exitState();
     changeState(newStatePtr);
   }
 }
@@ -25,4 +26,8 @@ void stateMachine::changeState(State* newStatePtr) {
   delete _currStatePtr;
   _currStatePtr = newStatePtr;
   _currStatePtr -> initialise();
+}
+
+void stateMachine::exitState() {
+  _currStatePtr -> exitState();
 }
