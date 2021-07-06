@@ -1,5 +1,4 @@
 // Right before launch, ensure legs are fully recessed
-
 // Deploy legs
 // Reverse drive by a certain amount to retract spike
 // landing gear retraction - back to 0
@@ -20,16 +19,23 @@ class VLAD_servo{
     public:
         VLAD_servo(); // function that gets cvalled when class is created (the constructor)
         // anything you want to run before the class is initialised
-        int time_length;
+        int time_length; // IS THIS NEEDED? should time_length be defined as speed is in cpp file?
+        int time_length_deploy_legs;
+        int time_length_retract_spike;
+        int time_length_retract_legs;
+        int speed_deploy_legs;
+        int speed_retract_spike;
+        int speed_retract_legs;
+        int action; // prescribe desired action: deploy legs(1), retract spike(2), retract legs(3)
 
 
 
      private:
          Servo obj_servo;
-        int get_position(); 
+        int desired_time_speed(action); 
         void move_servo(); 
         
-        int current_position; // position variable
+        int current_speed; // position variable
         int desired_position;
         int desired_speed;
         
