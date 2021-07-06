@@ -1,6 +1,44 @@
 // Right before launch, ensure legs are fully recessed
+
 // Deploy legs
 // Reverse drive by a certain amount to retract spike
-// landing gear retraction
-// Nadja
-// hello
+// landing gear retraction - back to 0
+
+
+// include guard - limits how many times you can include something (stops it from looping etc)
+
+#ifndef VLAD_servo
+#define VLAD_servo
+
+
+#include "servo.h"
+// grabs arduino library 
+
+
+class VLAD_servo{
+
+    public:
+        VLAD_servo(); // function that gets cvalled when class is created (the constructor)
+        // anything you want to run before the class is initialised
+        int time_length;
+
+
+
+     private:
+         Servo obj_servo;
+        int get_position(); 
+        void move_servo(); 
+        
+        int current_position; // position variable
+        int desired_position;
+        int desired_speed;
+        
+}
+
+// checks for events will be in the state code later
+// public - can be accessed outside func (like global var)
+// private - vice versa 
+// protected - variables that won't be inherited by other classes 
+// void is for initialising functions that wont return anything
+
+#endif
