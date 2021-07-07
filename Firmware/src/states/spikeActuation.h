@@ -3,3 +3,18 @@
 
 // do nothing but send telemetry (orientation data) for a certain amount of while
 // retract spike
+
+#include "Arduino.h"
+#include "state.h"
+
+#ifndef SPIKEACTUATION_H
+#define SPIKEACTUATION_H
+
+class spikeActuation: public State {
+    public:
+        void initialise();
+        State* update();
+        void exitState();
+};
+
+#endif
