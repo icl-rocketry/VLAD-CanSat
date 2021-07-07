@@ -12,8 +12,9 @@ Written by Electronics Team, Imperial College London Rocketry
 class State {
   public:
     virtual void initialise();
-    virtual State* update();
+    virtual State* update() = 0;
     virtual void exitState();
+    virtual ~State() = 0; // Pure virtual destructor
 };
 
 #endif

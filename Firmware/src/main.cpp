@@ -4,12 +4,12 @@
 
 stateMachine stateMach;
 
-void Setup() {
+void setup() {
     // Start the state machine with the correct initial state
     stateMach.initialise(new preLaunch);
 }
 
-void Loop() {
+void loop() {
     // Update the state machine
     stateMach.update();
 }
