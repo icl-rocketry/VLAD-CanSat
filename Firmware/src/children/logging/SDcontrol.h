@@ -1,6 +1,6 @@
 // SD card logging 
-#include "BNO.h"
-#include "BMP.h"
+#include "../sensors/IMU.h"
+#include "../sensors/barom.h"
 #include "FS.h"
 #include "SD.h"
 #include <SPI.h>
@@ -10,14 +10,20 @@
 
 class sd_card_log {
   public:
+
+    //sd_card_log(barom* bmp388, IMU* bno);
     sd_card_log();
     void begin();
     void open_check();
     void write();
-    private:
+  private:
     void logSDCard(); 
-    void appendFile();
-}
+    void appendFile(fs::FS &fs, const char * path, const char * message);
+    void writeFile(fs::FS &fs, const char * path, const char * message);
+
+    //barom* _bmp388;
+    //IMU* _bno;
+};
 
 #endif SDCONTROL_H
 
