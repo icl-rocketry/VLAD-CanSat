@@ -51,7 +51,7 @@ int VLAD_servo::desired_time_speed(action){ // sets the length of time and speed
 
 void VLAD_servo::move_servo(){
     int start_time = millis(); // store the time at which servo begins moving
-    obj_servo.write(speed) // begin moving servo
+    obj_servo.write(speed); // begin moving servo
 
 };
 
