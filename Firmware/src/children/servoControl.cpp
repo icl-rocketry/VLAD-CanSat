@@ -9,7 +9,7 @@
 
 #include "servoControl.h"
 #include "servo.h"
-##define speed 0 // 0 = 1, 180 = -1, 90 = 0
+##define speed 0 // 0 = 1, 180 = -1, 90 = 0 (not a variable!)
 
 VLAD_servo::VLAD_servo():
 {};

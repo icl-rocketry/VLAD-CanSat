@@ -17,8 +17,13 @@
 class VLAD_servo{
 
     public:
-        VLAD_servo(); // function that gets cvalled when class is created (the constructor)
+        VLAD_servo(); // function that gets called when class is created (the constructor)
+        int get_speed(); // reads current speed of servo (the one previously assigned to it)
+        void update();
+
         // anything you want to run before the class is initialised
+        int speed;
+        
         int time_length; // IS THIS NEEDED? should time_length be defined as speed is in cpp file?
         int time_length_deploy_legs;
         int time_length_retract_spike;
@@ -34,8 +39,9 @@ class VLAD_servo{
          Servo obj_servo;
         int desired_time_speed(action); 
         void move_servo(); 
+
         
-        int current_speed; // position variable
+        int current_speed; 
         int desired_position;
         int desired_speed;
         
