@@ -4,7 +4,7 @@
 #include "buzzer.h"
 
 unsigned long previousT = 0;
-const long delay = 6000;
+unsigned long delay = 6000;
 
 buzzer.buzzer(){
 }
@@ -50,8 +50,7 @@ void buzzer::errorAlert(){
         if (millis() - previousT >= delay) {
         // save the last time you made a buzzer sound
         previousT += delay;
-        tone(buzzer.buzzer, 1000, 3000); // Send 1KHz sound signal
-        tone(buzzer.buzzer, 0, 3000);      // delay for 0.5 sec
+        tone(buzzer.buzzer, 1000, delay); // Send 1KHz sound signal
         }
     }
     */

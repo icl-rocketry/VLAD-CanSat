@@ -4,6 +4,8 @@
 // Warning for spike
 
 #include "children/sensors/barom.h"
+#include "children/latchControl.h"
+#include "children/errorHandling.h"
 #include <Arduino.h>
 #include "pinDefinitions.h"
 
