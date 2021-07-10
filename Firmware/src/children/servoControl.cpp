@@ -63,3 +63,7 @@ void VLAD_servo::update(){ // runs repeatedly to check servo
     } // ...stop moving servo (set speed to zero)
 
 };
+
+void VLAD_servo::update(actions request) {
+
+}
