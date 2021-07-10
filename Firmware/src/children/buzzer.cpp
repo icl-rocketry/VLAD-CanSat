@@ -3,36 +3,43 @@
 
 #include "buzzer.h"
 
-buzzer::buzzer(){
-};
+unsigned long previousT = 0;
+const long delay = 6000;
+
+buzzer.buzzer(){
+}
 
 void buzzer::setupBuzzer(){
     pinMode(BUZZERPIN, OUTPUT)
-};
+}
 
-void buzzer::landingAlert(bool barom::hasLanded()){
-    if (barom::hasLanded() == true){
+void buzzer::landingAlert(){
+    if (barom.hasLanded() == true){
         // what tune should we play
         // boring buzzer sounds for now
-        tone(buzzer, 1000); // Send 1KHz sound signal
-        delay(1000);        // delay for 1 sec
-        tone(buzzer, 1000); // again
-        noTone(buzzer);     // Stop sound
-        delay(3000);        // 4 sec
+        if (millis() - previousT >= delay) {
+        // save the last time you made a buzzer sound
+        previousT += delay;
+        tone(buzzer.buzzer, 1000, 1000); // Send 1KHz sound signal
+        tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
+        tone(buzzer.buzzer, 1000, 1000); // again
+        tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
+        tone(buzzer.buzzer, 1000, 1000); // last time for dramatic effect
+        }
     }
-};
+}
 
-void buzzer::startingAlert(bool barom::startDetection()){
-    if (barom::startDetection() == true){
-        tone(buzzer, 1000); // Send 1KHz sound signal
-        delay(500);        // delay for 0.5 sec
-        tone(buzzer, 1000); // again
-        delay(500);        // delay for 0.5 sec
-        tone(buzzer, 1000); // last time for dramatic effect
-        noTone(buzzer);     // Stop sound
-        delay(3000);        // 3 sec
+void buzzer::startingAlert(bool barom.startDetection()){
+    if (barom.startDetection() == true){
+        if (millis() - previousT >= delay) {
+        // save the last time you made a buzzer sound
+        previousT += delay;
+        tone(buzzer.buzzer, 1000, 500); // Send 1KHz sound signal
+        tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
+        tone(buzzer.buzzer, 1000, 500); // again
+        }
     }
-};
+}
 
 // [UNFINISHED] related to the error handling code
 void buzzer::errorAlert(){
@@ -40,11 +47,15 @@ void buzzer::errorAlert(){
     if (){
         // wouldn't shut up before the error is fixed
         // just to annoy everyone
-        tone(buzzer, 1000); // Send 1KHz sound signal
-        delay(500);        // delay for 0.5 sec
+        if (millis() - previousT >= delay) {
+        // save the last time you made a buzzer sound
+        previousT += delay;
+        tone(buzzer.buzzer, 1000, 3000); // Send 1KHz sound signal
+        tone(buzzer.buzzer, 0, 3000);      // delay for 0.5 sec
+        }
     }
     */
-};
+}
 
 // [UNFINISHED] related to state machine code???
 void buzzer::stateAlert(){
@@ -52,33 +63,31 @@ void buzzer::stateAlert(){
     if (){
         // my creativity has ended here
         // literally can't think of any sound pattern 
-        tone(buzzer, 1000); // Send 1KHz sound signal
-        delay(1000);        // delay for 1 sec
-        tone(buzzer, 1000); // again
-        delay(300);        // delay for 0.3 sec
-        tone(buzzer, 1000); // again
-        noTone(buzzer);     // Stop sound
-        delay(4000);        // 4 sec
+        if (millis() - previousT >= delay) {
+        // save the last time you made a buzzer sound
+        previousT += delay;
+        tone(buzzer.buzzer, 1000, 2000); // Send 1KHz sound signal
+        tone(buzzer.buzzer, 0, 1000);      // delay for 0.5 sec
+        tone(buzzer.buzzer, 1000, 2000); // again
+        }
     } 
     */
-};
+}
 
-// [UNFINISHED] related to latchControl???
 void buzzer::spikeAlert(){
-    /*
-    if (){
-        tone(buzzer, 1000); // Send 1KHz sound signal
-        delay(300);        // delay for 0.3 sec
-        tone(buzzer, 1000); // again
-        delay(300);        // delay for 0.3 sec
-        tone(buzzer, 1000); // again
-        delay(1000);        // delay for 1 sec
-        tone(buzzer, 1000); // 
-        noTone(buzzer);     // Stop sound
-        delay(4000);        // 4 sec
+    if (latch.imminentDeployment == true;){
+        if (millis() - previousT >= delay) {
+        // save the last time you made a buzzer sound
+        previousT += delay;
+        tone(buzzer.buzzer, 1000, 500); // Send 1KHz sound signal
+        tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
+        tone(buzzer.buzzer, 1000, 500); // again
+        tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
+        tone(buzzer.buzzer, 1000, 2000); // 
+        }
     } 
-    */
-};
+    
+}
 
 
 
