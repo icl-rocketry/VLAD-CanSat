@@ -1,7 +1,6 @@
 #include <Arduino.h>
 #include <IMU.h>
-#include "Adafruit_Sensor.h"
-#include "Adafruit_BNO055.h"
+#include "Adafruit_BNO08x.h"
 
 #define datadelay = 100
 #define gravityaccel = (3.14^2)
@@ -10,31 +9,38 @@
 
 
 IMU::IMU(){
-    Adafruit_BNO055 bno = Adafruit_BNO055(, 0x28) //needs first input not sure what it is
+    Adafruit_BNO08x bno08x(-1);
     uint8_t lastDataTime = 0;
-
-    sensors_event_t lastOrientData, lastAccelData
+    sh2_SensorValue_t sensorValue;
 }
 
 bool imuBegin(){
-    if(bno.begin()){
+    if(bno08x.begin_I2C()){
         lastDataTime = millis();
         return true;
     } else {
-        Serial.print('error starting BNO');
+        Serial.print("Failure finding chip");
         return false;
         }
+    if (!bno08x.enableReport(SH2_LINEAR_ACCELERATION)) {
+        Serial.println("Could not enable Linear Acceleration");
+    }
+    if (!bno08x.enableReport(SH2_ROTATION_VECTOR)) {
+        Serial.println("Could not enable rotation vector");
+
 }
 
 void IMU::updateData(){
     if(millis()-lastDataTime >= datadelay){
-        bno.getEvent(&lastOrientData, Adafruit_BNO055::VECTOR_EULER);
-        bno.getEvent(&lastAccelData, Adafruit_BNO055::VECTOR_LINEARACCEL);
+        if (!bno08x.getSensorEvent(&sensorValue)) {
+            Serial.println("could not update values")
+        }
+
     }
 }
 
 bool IMU::highGEvent(){
-    if(((lastAccelData.acceleration.x^2+lastAccelData.acceleration.y^2+lastAccelData.acceleration.z^2)^0.5) >= gtolerance*gravityaccel){
+    if(((sensorValue.un.linearAcceleration.x^2+sensorValue.un.linearAcceleration.y^2+sensorValue.un.linearAcceleration.z^2)^0.5) >= gtolerance*gravityaccel){
         return true;
     } else {
         return false;
@@ -42,12 +48,12 @@ bool IMU::highGEvent(){
 }
 
 uint8_t[] IMU::getOrientation(){
-    return [lastOrientData.orientation.x, lastOrientData.orientation.y, lastOrientData.z]
+    return [sensorValue.un.rotationVector.i, sensorValue.un.rotationVector.j, sensorValue.un.rotationVector.k]
 }
 
 //checks stationary just with acceleration, could implement gyroscope check if needed
 bool IMU::isStationary(){
-    if(lastAccelData.acceleration.x<acceltolerance&&lastAccelData.acceleration.y<acceltolerance&&lastAccelData.acceleration.y<acceltolerance){
+    if(sensorValue.un.linearAcceleration.x<acceltolerance&&sensorValue.un.linearAcceleration.y<acceltolerance&&sensorValue.un.linearAcceleration.z<acceltolerance){
         return true;
     } else {
         return false;
