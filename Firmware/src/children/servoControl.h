@@ -13,6 +13,7 @@
 #include "ESP32Servo.h"
 // grabs arduino library 
 
+enum actions {deploy_legs, retract_spike, retract_legs};
 
 class VLAD_servo{
 
@@ -20,14 +21,15 @@ class VLAD_servo{
         VLAD_servo(); // function that gets called when class is created (the constructor)
         int get_speed(); // reads current speed of servo (the one previously assigned to it)
         void update();
-        void update(actions request);
+        void request_move(actions request);
+
+     private:
+        Servo obj_servo;
+        void desired_time_speed(actions request); 
+        void move_servo(); 
 
         // anything you want to run before the class is initialised
         int speed;
-
-        enum actions {deploy_legs, retract_spike, retract_legs};
-
-        
         int time_length; 
         int time_length_deploy_legs;
         int time_length_retract_spike;
@@ -35,17 +37,6 @@ class VLAD_servo{
         int speed_deploy_legs;
         int speed_retract_spike;
         int speed_retract_legs;
-        actions request; // prescribe desired action: deploy legs(1), retract spike(2), retract legs(3)
-
-
-
-     private:
-        Servo obj_servo;
-        void request_move(actions request);
-        void desired_time_speed(actions request); 
-        void move_servo(); 
-
-        
         int current_speed; 
         int desired_position;
         int desired_speed;

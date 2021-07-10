@@ -69,7 +69,7 @@ void VLAD_servo::update(){ // runs repeatedly to check servo
 
 
 void VLAD_servo::request_move(actions request){
-    desired_time_speed(actions request);
+    desired_time_speed(request);
     move_servo();
 };
 
