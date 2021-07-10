@@ -16,6 +16,7 @@
 #include <SPI.h>
 #include <array>
 #include <vector>
+#include <pinDefinitions.h>
 
 // Telemetry packet struct
 struct telemetry_t{
