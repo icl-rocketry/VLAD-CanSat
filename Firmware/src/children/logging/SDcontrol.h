@@ -15,9 +15,8 @@ class sd_card_log {
     sd_card_log();
     void begin();
     void open_check();
-    void write();
-  private:
     void logSDCard(); 
+  private:
     void appendFile(fs::FS &fs, const char * path, const char * message);
     void writeFile(fs::FS &fs, const char * path, const char * message);
 

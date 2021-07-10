@@ -4,8 +4,7 @@
 #include "FS.h"
 #include "SD.h"
 #include <SPI.h>
-#define SD_CS 5
-
+#include "pinDefinitions.h"
 
 //sd_card_log::sd_card_log(barom* bmp388, IMU* bno){
 sd_card_log::sd_card_log(){
@@ -14,7 +13,9 @@ sd_card_log::sd_card_log(){
 };
 
 void sd_card_log::begin(){
+    Serial.println("Just before initialisation");
     SD.begin(SD_CS);
+
     if (!SD.begin(SD_CS))
     {
         Serial.println("Card Mount Failed");
@@ -48,12 +49,6 @@ else
 }
 file.close();
 }
-
-void sd_card_log::write(){
-    String timeStamp;
-    String dataMessage;
-}
-
 
 void sd_card_log::logSDCard(){
   unsigned long timeStamp = millis();
