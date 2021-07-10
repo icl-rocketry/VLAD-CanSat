@@ -46,10 +46,11 @@ bool IMU::highGEvent(){
         return false;
     }
 }
-
+/*
 uint8_t[] IMU::getOrientation(){
     return [sensorValue.un.rotationVector.i, sensorValue.un.rotationVector.j, sensorValue.un.rotationVector.k]
 }
+*/
 
 //checks stationary just with acceleration, could implement gyroscope check if needed
 bool IMU::isStationary(){

@@ -25,4 +25,6 @@ class barom {
 
         //detects landing through changes in altitude
         bool hasLanded();
-}
+};
+
+#endif

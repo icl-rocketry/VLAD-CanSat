@@ -25,7 +25,8 @@ class IMU {
         bool imuBegin();
         void updateData();
         bool highGEvent();
-        uint8_t[] getOrientation();
+        //uint8_t[] getOrientation();
         bool isStationary();
-}
+};
 
+#endif
