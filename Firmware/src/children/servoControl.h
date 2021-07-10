@@ -19,9 +19,11 @@ class VLAD_servo{
 
     public:
         VLAD_servo(); // function that gets called when class is created (the constructor)
-        int get_speed(); // reads current speed of servo (the one previously assigned to it)
+        void begin();
         void update();
         void request_move(actions request);
+        int get_speed(); // reads current speed of servo (the one previously assigned to it)
+
 
      private:
         Servo obj_servo;

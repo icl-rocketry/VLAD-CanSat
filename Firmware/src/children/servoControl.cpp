@@ -9,6 +9,8 @@
 
 #include "servoControl.h"
 #include "ESP32Servo.h"
+#include <pinDefinitions.h> 
+
 //servo speeds: 0 = 1, 180 = -1, 90 = 0 
 
 #define time_length_deploy_legs 5000 // assuming time in ms
@@ -24,6 +26,10 @@ VLAD_servo::VLAD_servo()
 {
     time_length = 0;
     start_time = 0;
+};
+
+void VLAD_servo::begin(){
+    obj_servo.attach(SERVO_PIN);
 };
 
 
