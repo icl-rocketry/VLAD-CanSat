@@ -9,7 +9,16 @@
 
 #include "servoControl.h"
 #include "servo.h"
-##define speed 0 // 0 = 1, 180 = -1, 90 = 0 (not a variable!)
+//servo speeds: 0 = 1, 180 = -1, 90 = 0 
+
+#define time_length_deploy_legs 5000 // assuming time in ms
+#define time_length_retract_spike 1000
+#define time_length_retract_legs 4000
+
+#define speed_deploy_legs 0
+#define speed_retract_spike 180
+#define speed_retract_legs 180
+
 
 VLAD_servo::VLAD_servo():
 {};
@@ -19,33 +28,20 @@ int VLAD_servo::get_speed(){
     current_speed = obj.servo.read();
 };
 
-// CHECK: SHOULD action BE DEFINED AS speed ABOVE, OR AS PUBLIC IN HEADER FILE
-// should update function be in header file also? do values need to be specifically returned, or is setting them within the function enough?
-
-int VLAD_servo::desired_time_speed(action){ // sets the length of time and speed at which servo will run, given desired action
-    time_length_deploy_legs = 5; 
-    speed_deploy_legs = 0;
-
-    time_length_retract_spike = 1;
-    speed_retract_spike = 180;
-
-
-    time_length_retract_legs = 4;
-    speed_retract_legs = 180;
-
+int VLAD_servo::desired_time_speed(actions request){ // sets the length of time and speed at which servo will run, given desired action
 
     
-    if (action == 1)
-        {time_length = time_length_deploy_legs
-        speed = speed_deploy_legs};
+    if (request == actions::deploy_legs)
+        {speed = speed_deploy_legs
+        time_length = time_length_deploy_legs};
 
-    else if (action == 2)
-        {time_length = time_length_retract_spike
-        speed = speed_retract_spike};
+    else if (request == retract_spike)
+        {speed = speed_retract_spike
+        time = time_length_retract_spike};
 
-    else if (action == 3)
-        {time_length = time_length_retract_legs
-        speed = speed_retract_legs};
+    else if (request == retract_legs)
+        {time = speed_retract_legs
+        speed = time_length_retract_legs};
 
 };
 
