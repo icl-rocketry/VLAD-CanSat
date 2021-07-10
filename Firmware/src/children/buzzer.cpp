@@ -3,10 +3,10 @@
 
 #include "buzzer.h"
 
-unsigned long previousT = 0;
-unsigned long delay = 6000;
+previousT = 0;
+delay = 6000;
 
-buzzer.buzzer(){
+buzzer::buzzer(){
 }
 
 void buzzer::setupBuzzer(){
@@ -17,27 +17,27 @@ void buzzer::landingAlert(){
     if (barom.hasLanded() == true){
         // what tune should we play
         // boring buzzer sounds for now
-        if (millis() - previousT >= delay) {
+        //if (millis() - previousT >= delay) {
         // save the last time you made a buzzer sound
-        previousT += delay;
+        // previousT += delay;
         tone(buzzer.buzzer, 1000, 1000); // Send 1KHz sound signal
         tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
         tone(buzzer.buzzer, 1000, 1000); // again
         tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
         tone(buzzer.buzzer, 1000, 1000); // last time for dramatic effect
-        }
+        //}
     }
 }
 
-void buzzer::startingAlert(bool barom.startDetection()){
+void buzzer::startingAlert(){
     if (barom.startDetection() == true){
-        if (millis() - previousT >= delay) {
+        // if (millis() - previousT >= delay) {
         // save the last time you made a buzzer sound
-        previousT += delay;
+        // previousT += delay;
         tone(buzzer.buzzer, 1000, 500); // Send 1KHz sound signal
         tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
         tone(buzzer.buzzer, 1000, 500); // again
-        }
+        // }
     }
 }
 
@@ -56,34 +56,30 @@ void buzzer::errorAlert(){
     */
 }
 
-// [UNFINISHED] related to state machine code???
+// include this in initialise code for different states
 void buzzer::stateAlert(){
-    /*
-    if (){
-        // my creativity has ended here
-        // literally can't think of any sound pattern 
-        if (millis() - previousT >= delay) {
-        // save the last time you made a buzzer sound
-        previousT += delay;
-        tone(buzzer.buzzer, 1000, 2000); // Send 1KHz sound signal
-        tone(buzzer.buzzer, 0, 1000);      // delay for 0.5 sec
-        tone(buzzer.buzzer, 1000, 2000); // again
-        }
-    } 
-    */
+    // my creativity has ended here
+    // literally can't think of any sound pattern 
+    // if (millis() - previousT >= delay) {
+    // save the last time you made a buzzer sound
+    // previousT += delay;
+    tone(buzzer.buzzer, 1000, 2000); // Send 1KHz sound signal
+    tone(buzzer.buzzer, 0, 1000);      // delay for 0.5 sec
+    tone(buzzer.buzzer, 1000, 2000); // again
+    // }
 }
 
 void buzzer::spikeAlert(){
-    if (latch.imminentDeployment == true;){
-        if (millis() - previousT >= delay) {
+    if (latch.imminentDeployment == true){
+        // if (millis() - previousT >= delay) {
         // save the last time you made a buzzer sound
-        previousT += delay;
+        // previousT += delay;
         tone(buzzer.buzzer, 1000, 500); // Send 1KHz sound signal
         tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
         tone(buzzer.buzzer, 1000, 500); // again
         tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
         tone(buzzer.buzzer, 1000, 2000); // 
-        }
+        // }
     } 
     
 }

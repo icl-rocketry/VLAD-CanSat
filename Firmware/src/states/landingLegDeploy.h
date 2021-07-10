@@ -5,6 +5,7 @@
 
 #include "Arduino.h"
 #include "state.h"
+#include "children/buzzer.h"
 
 #ifndef LANDINGLEGDEPLOY_H
 #define LANDINGLEGDEPLOY_H

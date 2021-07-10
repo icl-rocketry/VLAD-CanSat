@@ -8,6 +8,7 @@
 
 #include "Arduino.h"
 #include "state.h"
+#include "children/buzzer.h"
 
 #ifndef PRELAUNCH_H
 #define PRELAUNCH_H
