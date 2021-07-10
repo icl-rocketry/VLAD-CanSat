@@ -23,6 +23,9 @@ class VLAD_servo{
 
         // anything you want to run before the class is initialised
         int speed;
+
+        enum actions {deploy_legs, retract_spike, retract_legs};
+
         
         int time_length; // IS THIS NEEDED? should time_length be defined as speed is in cpp file?
         int time_length_deploy_legs;
@@ -31,7 +34,7 @@ class VLAD_servo{
         int speed_deploy_legs;
         int speed_retract_spike;
         int speed_retract_legs;
-        int action; // prescribe desired action: deploy legs(1), retract spike(2), retract legs(3)
+        actions request; // prescribe desired action: deploy legs(1), retract spike(2), retract legs(3)
 
 
 
