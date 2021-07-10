@@ -40,21 +40,25 @@ int VLAD_servo::get_speed(){
 
 void VLAD_servo::desired_time_speed(actions request){ // sets the length of time and speed at which servo will run, given desired action
 
-    if (request == actions::deploy_legs)
-    {
-        speed = speed_deploy_legs;
-        time_length = time_length_deploy_legs;
+    switch(request){
+
+        case deploy_legs:
+            speed = speed_deploy_legs;
+            time_length = time_length_deploy_legs;
+            break;
+
+        case retract_spike:
+            speed = speed_retract_spike;
+            time_length = time_length_retract_spike;
+            break;
+
+        case retract_legs:
+            time_length = speed_retract_legs;
+            speed = time_length_retract_legs;
+            break;
+            
     }
-    else if (request == retract_spike)
-    {
-        speed = speed_retract_spike;
-        time_length = time_length_retract_spike;
-    }
-    else if (request == retract_legs)
-    {
-        time_length = speed_retract_legs;
-        speed = time_length_retract_legs;
-    }
+
 
 };
 
