@@ -28,7 +28,7 @@ class VLAD_servo{
         enum actions {deploy_legs, retract_spike, retract_legs};
 
         
-        int time_length; // IS THIS NEEDED? should time_length be defined as speed is in cpp file?
+        int time_length; 
         int time_length_deploy_legs;
         int time_length_retract_spike;
         int time_length_retract_legs;
@@ -41,6 +41,7 @@ class VLAD_servo{
 
      private:
         Servo obj_servo;
+        void request_move(actions request);
         void desired_time_speed(actions request); 
         void move_servo(); 
 

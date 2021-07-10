@@ -21,7 +21,10 @@
 
 
 VLAD_servo::VLAD_servo()
-{};
+{
+    time_length = 0;
+    start_time = 0;
+};
 
 
 int VLAD_servo::get_speed(){
@@ -64,6 +67,9 @@ void VLAD_servo::update(){ // runs repeatedly to check servo
 
 };
 
-void VLAD_servo::update(actions request) {
 
-}
+void VLAD_servo::request_move(actions request){
+    desired_time_speed(actions request);
+    move_servo();
+};
+
