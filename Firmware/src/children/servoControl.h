@@ -6,11 +6,11 @@
 
 // include guard - limits how many times you can include something (stops it from looping etc)
 
-#ifndef VLAD_servo
-#define VLAD_servo
+#ifndef VLAD_SERVO_H
+#define VLAD_SERVO_H
 
 
-#include "servo.h"
+#include "ESP32Servo.h"
 // grabs arduino library 
 
 
@@ -20,6 +20,7 @@ class VLAD_servo{
         VLAD_servo(); // function that gets called when class is created (the constructor)
         int get_speed(); // reads current speed of servo (the one previously assigned to it)
         void update();
+        void update(actions request);
 
         // anything you want to run before the class is initialised
         int speed;
@@ -39,16 +40,17 @@ class VLAD_servo{
 
 
      private:
-         Servo obj_servo;
-        int desired_time_speed(action); 
+        Servo obj_servo;
+        void desired_time_speed(actions request); 
         void move_servo(); 
 
         
         int current_speed; 
         int desired_position;
         int desired_speed;
+        int start_time;
         
-}
+};
 
 // checks for events will be in the state code later
 // public - can be accessed outside func (like global var)
