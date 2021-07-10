@@ -12,6 +12,7 @@
 
 class buzzer{
     public:
+    buzzer();
     // set up the buzzer
     void setupBuzzer();
     // alert sound when landing
