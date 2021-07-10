@@ -3,40 +3,35 @@
 // provide data to other children
 // Palash
 
+#ifndef ErrorHandling
+#define ErrorHandling 
+
+
+#include "Arduino.h"
+
+
+
 // This snippet will be called any time there is an error update from any of the children. Not usable rn.
+enum states
+{
+    servo = 1, SDCard = 2, IMU = 3, Baro = 4, Radio = 5;
+
 class ErrorHandler
 {
-private:
-    /* data */
 public:
-    ErrorHandler(/* args */);
+    uint8_t get_state(); //default state = 0 or number if there is an error
+    uint8_t raiseError(); //will be called by the objects
+    void BuzzMe(); //buzzer to be activated
+    ErrorHandler(buzzer* buzz);
     ~ErrorHandler();
-};
 
-ErrorHandler::ErrorHandler(/* args */)
-{
-}
-
-ErrorHandler::~ErrorHandler()
-{
-}
-
-// This snippet will be used by this code itself to buzz any time a (critical) error is spotted. Not usable.
-class BuzzMe
-{
 private:
-    /* data */
-public:
-    BuzzMe(/* args */);
-    ~BuzzMe();
+    uint8_t currentState;
+    buzzer * _buzz;
 };
 
-BuzzMe::BuzzMe(/* args */)
-{
-}
 
-BuzzMe::~BuzzMe()
-{
-}
+
+#endif
 
 // Not sure what to do about the sending data to other children.
