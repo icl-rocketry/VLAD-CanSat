@@ -30,7 +30,7 @@ class buzzer{
 
     private:
     unsigned long previousT;
-    const long delay;
+    unsigned long delay;
 }
 
 
