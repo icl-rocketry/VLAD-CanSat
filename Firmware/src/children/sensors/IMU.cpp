@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <IMU.h>
+#include "IMU.h"
 #include "Adafruit_BNO08x.h"
 
 #define datadelay = 100
@@ -46,11 +46,15 @@ bool IMU::highGEvent(){
         return false;
     }
 }
-/*
-uint8_t[] IMU::getOrientation(){
-    return [sensorValue.un.rotationVector.i, sensorValue.un.rotationVector.j, sensorValue.un.rotationVector.k]
+
+void IMU::getOrientation(float* orientationArr){
+    *orientationArr = sensorValue.un.rotationVector.i;
+    orientationArr++;
+    *orientationArr = sensorValue.un.rotationVector.j;
+    orientationArr++;
+    *orientationArr = sensorValue.un.rotationVector.k;
 }
-*/
+
 
 //checks stationary just with acceleration, could implement gyroscope check if needed
 bool IMU::isStationary(){
