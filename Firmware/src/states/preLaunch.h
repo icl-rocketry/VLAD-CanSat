@@ -8,6 +8,7 @@
 
 #include "Arduino.h"
 #include "state.h"
+#include "children/buzzer.h"
 
 #ifndef PRELAUNCH_H
 #define PRELAUNCH_H
@@ -17,6 +18,7 @@ class preLaunch: public State {
         void initialise();
         State* update();
         void exitState();
+        buzzer buzz;
 };
 
 #endif

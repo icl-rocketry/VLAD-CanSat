@@ -5,6 +5,7 @@
 
 #include "Arduino.h"
 #include "state.h"
+#include "children/buzzer.h"
 
 #ifndef LANDINGLEGDEPLOY_H
 #define LANDINGLEGDEPLOY_H
@@ -14,6 +15,7 @@ class landingLegDeploy: public State {
         void initialise();
         State* update();
         void exitState();
+        buzzer buzz;
 };
 
 #endif

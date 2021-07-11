@@ -3,6 +3,7 @@
 
 #include "Arduino.h"
 #include "state.h"
+#include "children/buzzer.h"
 
 #ifndef FLIGHT_H
 #define FLIGHT_H
@@ -12,6 +13,7 @@ class flight: public State {
         void initialise();
         State* update();
         void exitState();
+        buzzer buzz;
 };
 
 #endif

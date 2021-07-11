@@ -1,7 +1,7 @@
 #include "preLaunch.h"
 
 void preLaunch::initialise() {
-
+    buzz.stateAlert();
 };
 
 State* preLaunch::update() {
