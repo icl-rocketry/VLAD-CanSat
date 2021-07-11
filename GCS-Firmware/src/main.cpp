@@ -1,14 +1,17 @@
 // GCS Firmware for VLAD
 #include <Arduino.h>
 #include "radio.h"
+#include "serialInterface.h"
 
 radio CanRad;
+serialInterface serInt(&CanRad);
 
 void setup() {
-    Serial.begin(115200);
-    CanRad.begin();
+    CanRad.setup();
+    serInt.begin();
 }
 
 void loop() {
     CanRad.update();
+    serInt.update();
 }

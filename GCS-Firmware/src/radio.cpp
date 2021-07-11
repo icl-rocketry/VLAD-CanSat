@@ -5,17 +5,12 @@
 #include <vector>
 
 radio::radio():
-spikeFire(false),
-spikeArmed(false),
-_txDone(false)
+    messageAvailable(false),
+    _txDone(false)
 {}
 
 bool radio::setup() {
     // Code to be run at setup
-
-    // Set initial value of spike fire state to 0
-    spikeArmed = 0;
-    spikeFire = 0;
 
     LoRa.setPins(RADIO_CS, RADIO_RESET, RADIO_IRQ);
 
@@ -36,18 +31,36 @@ void radio::checkIncomming(){
     int packetSize = LoRa.parsePacket();
 
     if (packetSize != 0) {
-        // Read the header
-
-        // Read and then parse the command
-        parseCommand(LoRa.read());
+        // Set flag
+        messageAvailable = true;
+        // Read the entire packet
+        LoRa.readBytes((uint8_t*)&_incomingPacket, packetSize);
     }
 }
 
-void radio::sendTelemetry() {
+void radio::sendCommand(Command commandToSend) {
     // Sends data to GCS over LoRa
+    uint8_t command;
+    switch (commandToSend)
+    {
+    case Command::sendTelemetry:
+        command = TELEMETRY_COMMAND;
+        break;
     
-    _sendBuffer.push_back(telemetryPacket); // copies telemetry into packet bufffer
+    case Command::armSpike:
+        command = ARM_COMMAND;
+        break;
 
+    case Command::fireSpike:
+        command = FIRE_COMMAND;
+        break;
+    default:
+        command = TELEMETRY_COMMAND;
+        break;
+    }
+
+     // copies telemetry into packet bufffer
+    _sendBuffer.push_back(command);
     msgCount++;
 }
 
@@ -60,8 +73,8 @@ void radio::checkSendBuffer(){
 
     // check if radio is busy, if it isnt then send next packet
     if(LoRa.beginPacket()){ 
-        telemetry_t packet = _sendBuffer.front();
-        LoRa.write((uint8_t*)&packet, telemetryPacketLength);
+        uint8_t packet = _sendBuffer.front();
+        LoRa.write(packet);
         LoRa.endPacket(true); // asynchronous send 
         //delete front element of send buffer
         _sendBuffer.erase(_sendBuffer.begin());
@@ -78,28 +91,7 @@ void radio::checkTx(){
     }
 }
 
-
-void radio::parseCommand(uint8_t command) {
-    // Function that updates the spike variables based on the received command
-
-    switch (command) {
-        case TELEMETRY_COMMAND:
-            sendTelemetry();
-            break;
-
-        case ARM_COMMAND:
-            // update the corresponding variable
-            spikeArmed = true;
-            break;
-
-        case FIRE_COMMAND:
-            // update the corresponding variable
-            spikeFire = true;
-            break;
-
-        default:
-            // Poorly formatted command received!
-            break;
-    }
-    
+telemetry_t radio::getPacket() {
+    messageAvailable = false;
+    return _incomingPacket;
 }

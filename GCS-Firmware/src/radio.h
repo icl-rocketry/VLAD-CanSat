@@ -17,6 +17,7 @@
 #include <array>
 #include <vector>
 #include <pinDefinitions.h>
+#include <commands.h>
 
 // Telemetry packet struct
 struct telemetry_t{
@@ -31,23 +32,19 @@ class radio {
         radio();
         bool setup();
         void update();
-
-        bool spikeFire;
-        bool spikeArmed;
-
-        telemetry_t telemetryPacket;
+        telemetry_t getPacket();
+        bool messageAvailable;
+        void sendCommand(Command commandToSend);
        
-
     private:
-        void sendCommand();
-        void parseTelemetry(uint8_t command);
         void checkIncomming();
         void checkSendBuffer();
         void checkTx();
 
-        std::vector<telemetry_t> _sendBuffer;
+        std::vector<uint8_t> _sendBuffer;
         bool _txDone;
         uint16_t msgCount;
+        telemetry_t _incomingPacket;
 };
 
 #endif
