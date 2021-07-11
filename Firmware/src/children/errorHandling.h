@@ -8,19 +8,20 @@
 
 
 #include "Arduino.h"
-
+#include "buzzer.h"
 
 
 // This snippet will be called any time there is an error update from any of the children. Not usable rn.
 enum states
 {
-    servo = 1, SDCard = 2, IMU = 3, Baro = 4, Radio = 5;
+    servo = 1, SDCard = 2, IMU = 3, Baro = 4, Radio = 5
+};
 
 class ErrorHandler
 {
 public:
     uint8_t get_state(); //default state = 0 or number if there is an error
-    uint8_t raiseError(); //will be called by the objects
+    void raiseError(states component); //will be called by the objects
     void BuzzMe(); //buzzer to be activated
     ErrorHandler(buzzer* buzz);
     ~ErrorHandler();
