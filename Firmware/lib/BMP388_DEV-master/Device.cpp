@@ -62,6 +62,7 @@ void Device::setClock(uint32_t clockSpeed)													// Set the I2C or SPI clo
 	}
 }
 
+/*
 #if !defined ARDUINO_ARCH_ESP8266 && !defined ARDUINO_ARCH_ESP32 && !defined ARDUINO_SAM_DUE
 void Device::usingInterrupt(uint8_t pinNumber)											// Wrapper for the SPI usingInterrupt() function
 {
@@ -73,6 +74,7 @@ void Device::notUsingInterrupt(uint8_t pinNumber)										// Wrapper for the SP
 	spi->notUsingInterrupt(pinNumber);
 }
 #endif
+*/
 
 ////////////////////////////////////////////////////////////////////////////////
 // Device I2C & SPI Wrapper (Protected) Member Functions

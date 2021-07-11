@@ -15,13 +15,13 @@ class barom {
         barom();
         BMP388_DEV bmp388;
         bool FIFOenabled;
-        uint8_t altitude;
-        uint8_t lastHasLandedTimeCheck;
-        uint8_t altitudemeasurements[numberofmeasurements];
+        float altitude;
+        uint32_t lastHasLandedTimeCheck;
+        float altitudemeasurements[numberofmeasurements];
 
         bool baromBegin();
         //gives the altitude
-        uint8_t getAltitude();
+        float getAltitude();
 
         //detects landing through changes in altitude
         bool hasLanded();

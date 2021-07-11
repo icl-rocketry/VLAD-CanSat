@@ -7,33 +7,12 @@
 #define Adafruit_SPIDevice_h
 
 // some modern SPI definitions don't have BitOrder enum
-#if (defined(__AVR__) && !defined(ARDUINO_ARCH_MEGAAVR)) ||                    \
-    defined(ESP8266) || defined(TEENSYDUINO) || defined(SPARK) ||              \
-    defined(ARDUINO_ARCH_SPRESENSE) || defined(MEGATINYCORE) ||                \
-    defined(DXCORE) || defined(ARDUINO_AVR_ATmega4809) ||                      \
-    defined(ARDUINO_AVR_ATmega4808) || defined(ARDUINO_AVR_ATmega3209) ||      \
-    defined(ARDUINO_AVR_ATmega3208) || defined(ARDUINO_AVR_ATmega1609) ||      \
-    defined(ARDUINO_AVR_ATmega1608) || defined(ARDUINO_AVR_ATmega809) ||       \
-    defined(ARDUINO_AVR_ATmega808)
-typedef enum _BitOrder {
-  SPI_BITORDER_MSBFIRST = MSBFIRST,
-  SPI_BITORDER_LSBFIRST = LSBFIRST,
-} BitOrder;
-
-#elif defined(ESP32) || defined(__ASR6501__)
-
 // some modern SPI definitions don't have BitOrder enum and have different SPI
 // mode defines
 typedef enum _BitOrder {
   SPI_BITORDER_MSBFIRST = SPI_MSBFIRST,
   SPI_BITORDER_LSBFIRST = SPI_LSBFIRST,
 } BitOrder;
-
-#else
-// Some platforms have a BitOrder enum but its named MSBFIRST/LSBFIRST
-#define SPI_BITORDER_MSBFIRST MSBFIRST
-#define SPI_BITORDER_LSBFIRST LSBFIRST
-#endif
 
 #if defined(__AVR__) || defined(TEENSYDUINO)
 typedef volatile uint8_t BusIO_PortReg;

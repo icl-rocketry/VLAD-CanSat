@@ -6,11 +6,8 @@
 #define timestandby 80
 #define altitudetolerance 3
 barom::barom() {
-    BMP388_DEV bmp388;
-    uint8_t altitude;
-    bool FIFOenabled = false;
-    uint8_t altitudemeasurements[numberofmeasurements];
-    uint8_t lastHasLandedTimeCheck = 0;
+    FIFOenabled = false;
+    lastHasLandedTimeCheck = 0;
     //starts storage of data, could put this in the hasLanded loop and run it once.
 }
 
@@ -18,7 +15,7 @@ bool barom::baromBegin(){
     if(bmp388.begin()){
         bmp388.startNormalConversion();
         bmp388.setTimeStandby(TIME_STANDBY_80MS);
-        bmp488.disableFIFO();
+        bmp388.disableFIFO();
         //doesnt have 100ms standby
         return true;
     } else {
@@ -26,10 +23,14 @@ bool barom::baromBegin(){
         return false;
     }
 }
-uint8_t barom::getAltitude() {
+
+float barom::getAltitude() {
     if(bmp388.getAltitude(altitude)) {
         return altitude;
-    } else {Serial.print('Error getting altitude');}
+    } else {
+        Serial.print('Error getting altitude');
+        return 0;
+    }
 }
 
 
@@ -39,11 +40,19 @@ bool barom::hasLanded() {
         bmp388.setFIFONoOfMeasurements(numberofmeasurements);
         FIFOenabled = true;
     }
+
+    // Variable to be overwritten by getFIFOData for temperature and pressure, as we dont care about them
+
+
+    
     if ((millis()-lastHasLandedTimeCheck)>((numberofmeasurements+1)*timestandby)){
         lastHasLandedTimeCheck = millis();
+        float dummyVar[numberofmeasurements];
+        uint32_t dummyTime;
         /*
         // this checks all measurements for a difference in 3m
-        if(bmp388.getFIFOData(temperature, pressure, altitudemeasurements, sensorTime)){ //have to change to not have those inputs
+        if(bmp388.getFIFOData(&dummyVar, &dummyVar, &altitudemeasurements, &sensorTime)){
+            // Loop through all measurements
             for (uint8_t i = 0, i < numberofmeasurements, i++){
                 for (uint8_t j = 0, j<i, j++){
                     if(abs(altitudemeasurements[j]-altitudemeasurements[i])>altitudetolerance){ 
@@ -53,13 +62,15 @@ bool barom::hasLanded() {
             }
             return true;
         }
-        // this checks only the first and last, less run time, less certain probably
-            if(bmp388.getFIFOData(temperature, pressure, altitudemeasurements, sensorTime)){ //have to change to not have those inputs
-                if(abs(altitudemeasurements[numberofmeasurements-1]-altitudemeasurements[0])>altitudetolerance){
-                    return false;
-                }
+        */
+
+        // this checks only the 5th and last, less run time, less certain probably
+        if(bmp388.getFIFOData(dummyVar, dummyVar, altitudemeasurements, dummyTime)){
+            if(abs(altitudemeasurements[numberofmeasurements-1]-altitudemeasurements[5])<altitudetolerance){
                 return true;
             }
-        */
+        }
+        
     }
+    return false;
 }

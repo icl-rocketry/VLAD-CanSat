@@ -7,7 +7,7 @@ BN0055
 */
 
 #include <Arduino.h>
-#include "Adafruit_BNO08x.h"
+#include <Adafruit_BNO08x.h>
 
 
 #ifndef IMU_H
@@ -17,9 +17,9 @@ class IMU {
     public:
 
         IMU();
-        Adafruit_BNO08x bno08x;
+        Adafruit_BNO08x * bno08x;
         sh2_SensorValue_t sensorValue;
-        uint8_t lastDataTime;
+        uint32_t lastDataTime;
         
 
         bool imuBegin();
