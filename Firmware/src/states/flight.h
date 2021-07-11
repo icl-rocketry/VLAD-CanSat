@@ -13,6 +13,7 @@ class flight: public State {
         void initialise();
         State* update();
         void exitState();
+        buzzer buzz;
 };
 
 #endif

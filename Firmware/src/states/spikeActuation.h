@@ -13,9 +13,11 @@
 
 class spikeActuation: public State {
     public:
+        spikeActuation();
         void initialise();
         State* update();
         void exitState();
+        buzzer buzz;
 };
 
 #endif

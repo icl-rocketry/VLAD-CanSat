@@ -3,11 +3,10 @@
 // buzz when changing state
 // Warning for spike
 
-#include "children/sensors/barom.h"
-#include "children/latchControl.h"
 #include "children/errorHandling.h"
 #include <Arduino.h>
 #include "pinDefinitions.h"
+#include <ESP32_tone.h>
 
 #ifndef BUZZER_H
 #define BUZZER_H
@@ -31,7 +30,8 @@ class buzzer{
     private:
     unsigned long previousT;
     unsigned long delay;
-}
+    ESP32_tone ESP_tone;
+};
 
 
 #endif

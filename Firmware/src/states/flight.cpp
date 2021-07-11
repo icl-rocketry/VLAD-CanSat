@@ -1,7 +1,7 @@
 #include "flight.h"
 
 void flight::initialise() {
-    buzzer.stateAlert();
+    buzz.stateAlert();
 };
 
 State* flight::update() {

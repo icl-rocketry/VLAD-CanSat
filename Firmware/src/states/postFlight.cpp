@@ -1,7 +1,7 @@
 #include "postFlight.h"
 
 void postFlight::initialise() {
-    buzzer.stateAlert();
+    buzz.stateAlert();
 };
 
 State* postFlight::update() {

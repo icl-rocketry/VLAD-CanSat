@@ -1,7 +1,7 @@
 #include "landingLegDeploy.h"
 
 void landingLegDeploy::initialise() {
-    buzzer.stateAlert();
+    buzz.stateAlert();
 };
 
 State* landingLegDeploy::update() {
