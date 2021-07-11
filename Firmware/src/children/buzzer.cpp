@@ -41,22 +41,18 @@ void buzzer::startingAlert(){
     }
 }
 
-// [UNFINISHED] related to the error handling code
+// called in the error handling code
 void buzzer::errorAlert(){
-    /*
-    if (){
-        // wouldn't shut up before the error is fixed
-        // just to annoy everyone
-        if (millis() - previousT >= delay) {
-        // save the last time you made a buzzer sound
-        previousT += delay;
-        tone(buzzer.buzzer, 1000, delay); // Send 1KHz sound signal
-        }
+    // wouldn't shut up before the error is fixed
+    // just to annoy everyone
+    if (millis() - previousT >= delay) {
+    // save the last time you made a buzzer sound
+    previousT += delay;
+    tone(buzzer.buzzer, 1000, delay); // Send 1KHz sound signal
     }
-    */
 }
 
-// include this in initialise code for different states
+// included this in initialise code for different states
 void buzzer::stateAlert(){
     // my creativity has ended here
     // literally can't think of any sound pattern 
