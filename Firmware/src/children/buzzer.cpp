@@ -10,7 +10,7 @@ buzzer::buzzer(){
 }
 
 void buzzer::setupBuzzer(){
-    pinMode(BUZZERPIN, OUTPUT)
+    pinMode(BUZZER_PIN, OUTPUT);
 }
 
 void buzzer::landingAlert(){
@@ -20,25 +20,23 @@ void buzzer::landingAlert(){
         //if (millis() - previousT >= delay) {
         // save the last time you made a buzzer sound
         // previousT += delay;
-        tone(buzzer.buzzer, 1000, 1000); // Send 1KHz sound signal
-        tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
-        tone(buzzer.buzzer, 1000, 1000); // again
-        tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
-        tone(buzzer.buzzer, 1000, 1000); // last time for dramatic effect
+        tone(BUZZER_PIN, 1000, 1000); // Send 1KHz sound signal
+        tone(BUZZER_PIN, 0, 500);      // delay for 0.5 sec
+        tone(BUZZER_PIN, 1000, 1000); // again
+        tone(BUZZER_PIN, 0, 500);      // delay for 0.5 sec
+        tone(BUZZER_PIN, 1000, 1000); // last time for dramatic effect
         //}
     }
 }
 
 void buzzer::startingAlert(){
-    if (barom.startDetection() == true){
         // if (millis() - previousT >= delay) {
         // save the last time you made a buzzer sound
         // previousT += delay;
-        tone(buzzer.buzzer, 1000, 500); // Send 1KHz sound signal
-        tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
-        tone(buzzer.buzzer, 1000, 500); // again
+        tone(BUZZER_PIN, 1000, 500); // Send 1KHz sound signal
+        tone(BUZZER_PIN, 0, 500);      // delay for 0.5 sec
+        tone(BUZZER_PIN, 1000, 500); // again
         // }
-    }
 }
 
 // called in the error handling code
@@ -48,7 +46,7 @@ void buzzer::errorAlert(){
     if (millis() - previousT >= delay) {
     // save the last time you made a buzzer sound
     previousT += delay;
-    tone(buzzer.buzzer, 1000, delay); // Send 1KHz sound signal
+    tone(BUZZER_PIN, 1000, delay); // Send 1KHz sound signal
     }
 }
 
@@ -59,9 +57,9 @@ void buzzer::stateAlert(){
     // if (millis() - previousT >= delay) {
     // save the last time you made a buzzer sound
     // previousT += delay;
-    tone(buzzer.buzzer, 1000, 2000); // Send 1KHz sound signal
-    tone(buzzer.buzzer, 0, 1000);      // delay for 0.5 sec
-    tone(buzzer.buzzer, 1000, 2000); // again
+    tone(BUZZER_PIN, 1000, 2000); // Send 1KHz sound signal
+    tone(BUZZER_PIN, 0, 1000);      // delay for 0.5 sec
+    tone(BUZZER_PIN, 1000, 2000); // again
     // }
 }
 
@@ -70,11 +68,11 @@ void buzzer::spikeAlert(){
         // if (millis() - previousT >= delay) {
         // save the last time you made a buzzer sound
         // previousT += delay;
-        tone(buzzer.buzzer, 1000, 500); // Send 1KHz sound signal
-        tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
-        tone(buzzer.buzzer, 1000, 500); // again
-        tone(buzzer.buzzer, 0, 500);      // delay for 0.5 sec
-        tone(buzzer.buzzer, 1000, 2000); // 
+        tone(BUZZER_PIN, 1000, 500); // Send 1KHz sound signal
+        tone(BUZZER_PIN, 0, 500);      // delay for 0.5 sec
+        tone(BUZZER_PIN, 1000, 500); // again
+        tone(BUZZER_PIN, 0, 500);      // delay for 0.5 sec
+        tone(BUZZER_PIN, 1000, 2000); // 
         // }
     } 
     
