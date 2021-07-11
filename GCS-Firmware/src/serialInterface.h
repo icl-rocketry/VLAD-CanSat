@@ -3,7 +3,7 @@
 
 #define SERIAL_SPEED 115200
 
-#define SEND_TELEMETRY_ID 0
+#define SEND_TELEMETRY_ID 3
 #define ARM_SPIKE_ID 1
 #define FIRE_SPIKE_ID 2
 

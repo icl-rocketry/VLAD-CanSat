@@ -39,6 +39,9 @@ bool serialInterface::inputCheck() {
                 next_command = Command::sendTelemetry;
                 break;
 
+            case 0: // Catch the newline at the end
+                return false;
+
             default:
                 Serial.println("Command not recognised");
                 return false;              

@@ -45,14 +45,17 @@ void radio::sendCommand(Command commandToSend) {
     {
     case Command::sendTelemetry:
         command = TELEMETRY_COMMAND;
+        Serial.println("Sent Telemetry Command");
         break;
     
     case Command::armSpike:
         command = ARM_COMMAND;
+        Serial.println("Sent Spike Command");
         break;
 
     case Command::fireSpike:
         command = FIRE_COMMAND;
+        Serial.println("Sent Fire Command");
         break;
     default:
         command = TELEMETRY_COMMAND;

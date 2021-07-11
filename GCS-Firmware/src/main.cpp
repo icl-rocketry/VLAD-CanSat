@@ -14,4 +14,5 @@ void setup() {
 void loop() {
     CanRad.update();
     serInt.update();
+    delay(10);
 }
