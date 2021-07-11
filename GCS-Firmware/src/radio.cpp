@@ -27,6 +27,11 @@ void radio::update() {
 }
 
 void radio::checkIncomming(){
+        // Check if the radio is currently transmitting, and abort if it is
+    if (!_txDone) {
+        return;
+    }
+
     // Check if there's a new packet incoming
     int packetSize = LoRa.parsePacket();
 
