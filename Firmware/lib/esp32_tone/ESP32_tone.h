@@ -1,5 +1,8 @@
 #include "Arduino.h"
 
+#ifndef ESP32_TONE_H
+#define ESP32_TONE_H
+
 class ESP32_tone {
 	
 	public:
@@ -22,3 +25,5 @@ class ESP32_tone {
 	void BuzzerTask();
 	
 };
+
+#endif
