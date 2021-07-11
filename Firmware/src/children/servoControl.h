@@ -10,7 +10,8 @@
 #define VLAD_SERVO_H
 
 
-#include "ESP32Servo.h"
+#include <ESP32Servo.h>
+#include <Arduino.h>
 // grabs arduino library 
 
 enum actions {deploy_legs, retract_spike, retract_legs};
