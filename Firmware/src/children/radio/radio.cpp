@@ -4,11 +4,13 @@
 #include <Arduino.h>
 #include <vector>
 
-radio::radio(ErrorHandler* errHand):
+radio::radio(barom* bmp388, IMU* bno, ErrorHandler* errHand):
 spikeFire(false),
 spikeArmed(false),
 _txDone(false),
-_errHand(errHand)
+_errHand(errHand),
+_bmp(bmp388),
+_bno(bno)
 {}
 
 void radio::setup() {
@@ -58,7 +60,7 @@ void radio::checkIncomming(){
 
 void radio::sendTelemetry() {
     // Sends data to GCS over LoRa
-    
+   updateTelemetry();
     _sendBuffer.push_back(telemetryPacket); // copies telemetry into packet bufffer
 
     msgCount++;
@@ -115,4 +117,11 @@ void radio::parseCommand(uint8_t command) {
             break;
     }
     
+}
+
+void radio::updateTelemetry() {
+    telemetryPacket.systemState = _errHand->get_state();
+    telemetryPacket.altitude = _bmp->getAltitude();
+    _bno->getOrientation(&telemetryPacket.orientations[0]);
+    telemetryPacket.systemTime = millis();
 }

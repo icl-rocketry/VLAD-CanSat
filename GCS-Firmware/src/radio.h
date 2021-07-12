@@ -21,10 +21,10 @@
 
 // Telemetry packet struct
 struct telemetry_t{
-    uint16_t systemState;
+    uint8_t systemState;
     float altitude;
     float orientations[3];
-    
+    uint32_t systemTime;
 }__attribute__((__packed__)); 
 
 class radio {
