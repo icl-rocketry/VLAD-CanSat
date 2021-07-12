@@ -6,10 +6,12 @@
 #include <SPI.h>
 #include "pinDefinitions.h"
 
-//sd_card_log::sd_card_log(barom* bmp388, IMU* bno){
-sd_card_log::sd_card_log(){
-  //_bmp388 = bmp388;
-  //_bno = bno;
+
+sd_card_log::sd_card_log(barom* bmp388, IMU* bno, ErrorHandler* errHand){
+//sd_card_log::sd_card_log(){
+  _bmp388 = bmp388;
+  _bno = bno;
+  _errHand = errHand;
 };
 
 void sd_card_log::begin(){
@@ -51,15 +53,17 @@ file.close();
 }
 
 void sd_card_log::logSDCard(){
+
+  // Get values to write
   unsigned long timeStamp = millis();
 
-  //uint8_t altitude = _bmp388.getAltitude();
-  //uint8_t[3] orientation = _bno.getOrientation();
+  float altitude = _bmp388->getAltitude();
+
+  float orientation[3];
+  _bno->getOrientation(&orientation[0]);
   
   // Arbitrary numbers for testing
-  uint8_t altitude = 20;
-  uint16_t SystemState = 5;
-  uint8_t orientation[3] = {1,2,3};
+  uint8_t SystemState = _errHand->get_state();
 
   String dataMessage;
   dataMessage = String(timeStamp) + "," +

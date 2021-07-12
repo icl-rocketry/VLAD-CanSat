@@ -26,7 +26,7 @@ void ErrorHandler::raiseError(states component){
             BuzzMe();
             break;
 
-        case states::IMU:
+        case states::imu:
             currentState |= (uint8_t)pow(2,3); 
             break;
 

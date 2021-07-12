@@ -4,6 +4,7 @@
 #include "FS.h"
 #include "SD.h"
 #include <SPI.h>
+#include "../errorHandling.h"
 
 #ifndef SDCONTROL_H
 #define SDCONTROL_H
@@ -11,8 +12,8 @@
 class sd_card_log {
   public:
 
-    //sd_card_log(barom* bmp388, IMU* bno);
-    sd_card_log();
+    sd_card_log(barom* bmp388, IMU* bno, ErrorHandler* errHand);
+    //sd_card_log();
     void begin();
     void open_check();
     void logSDCard(); 
@@ -20,11 +21,12 @@ class sd_card_log {
     void appendFile(fs::FS &fs, const char * path, const char * message);
     void writeFile(fs::FS &fs, const char * path, const char * message);
 
-    //barom* _bmp388;
-    //IMU* _bno;
+    barom* _bmp388;
+    IMU* _bno;
+    ErrorHandler* _errHand;
 };
 
-#endif SDCONTROL_H
+#endif
 
 
 

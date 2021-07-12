@@ -14,7 +14,7 @@
 // This snippet will be called any time there is an error update from any of the children. Not usable rn.
 enum states
 {
-    servo = 1, SDCard = 2, IMU = 3, Baro = 4, Radio = 5
+    servo = 1, SDCard = 2, imu = 3, Baro = 4, Radio = 5 // IMU not used as conflicts with IMU class
 };
 
 class ErrorHandler
