@@ -10,7 +10,7 @@ buzzer::buzzer():
 {}
 
 void buzzer::setupBuzzer(){
-    pinMode(BUZZER_PIN, OUTPUT);
+    ESP_tone.setCompatibleMode(true);
 }
 
 void buzzer::landingAlert(){
