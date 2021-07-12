@@ -55,13 +55,13 @@ void WiFiInterface::WIFIloop()
                         client.println("<p><a href=\"192.168.4.1/arm_spike\"><button class=\"button\">Arm Spike</button></a></p>");
                         client.println("<p><a href=\"192.168.4.1/send_telemetry\"><button class=\"button\">Send Telemetry</button></a></p>");
 
-                        client.println("<p>System State: " + telemetry.systemState + "</p>");
+                        client.println("<p>System State: " + String(_telemetry.systemState) + "</p>");
                         client.println();
-                        client.println("<p>Altitude: " + telemetry.altitude + "</p>");
+                        client.println("<p>Altitude: " + String(_telemetry.altitude) + "</p>");
                         client.println();
-                        client.println("<p>Orientation X: " + telemetry.orientations[1] + "</p>");
-                        client.println("<p>Orientation Y: " + telemetry.orientations[2] + "</p>");
-                        client.println("<p>Orientation Z: " + telemetry.orientations[3] + "</p>");
+                        client.println("<p>Orientation X: " + String(_telemetry.orientations[1]) + "</p>");
+                        client.println("<p>Orientation Y: " + String(_telemetry.orientations[2]) + "</p>");
+                        client.println("<p>Orientation Z: " + String(_telemetry.orientations[3]) + "</p>");
 
                         if (header.indexOf("GET /192.168.4.1/fire_spike") >= 0)
                         {
