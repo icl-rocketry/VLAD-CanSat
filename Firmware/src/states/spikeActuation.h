@@ -7,13 +7,14 @@
 #include "Arduino.h"
 #include "state.h"
 #include "children/buzzer.h"
+#include "../stateMachine.h"
 
 #ifndef SPIKEACTUATION_H
 #define SPIKEACTUATION_H
 
 class spikeActuation: public State {
     public:
-        spikeActuation();
+        spikeActuation(stateMachine* sm);
         void initialise();
         State* update();
         void exitState();

@@ -12,6 +12,7 @@
 
 class landingLegDeploy: public State {
     public:
+        landingLegDeploy(stateMachine* sm);
         void initialise();
         State* update();
         void exitState();

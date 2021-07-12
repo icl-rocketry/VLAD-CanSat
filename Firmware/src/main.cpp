@@ -6,7 +6,7 @@ stateMachine stateMach;
 
 void setup() {
     // Start the state machine with the correct initial state
-    stateMach.initialise(new preLaunch);
+    stateMach.initialise(new preLaunch(&stateMach));
 }
 
 void loop() {

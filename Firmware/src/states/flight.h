@@ -10,6 +10,7 @@
 
 class flight: public State {
     public:
+        flight(stateMachine* sm);
         void initialise();
         State* update();
         void exitState();

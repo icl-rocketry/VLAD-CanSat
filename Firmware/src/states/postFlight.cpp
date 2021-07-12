@@ -1,5 +1,9 @@
 #include "postFlight.h"
 
+postFlight::postFlight(stateMachine* sm):
+State(sm)
+{}
+
 void postFlight::initialise() {
     buzz.stateAlert();
 };

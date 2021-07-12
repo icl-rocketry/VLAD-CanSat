@@ -9,12 +9,14 @@
 #include "Arduino.h"
 #include "state.h"
 #include "children/buzzer.h"
+#include "../stateMachine.h"
 
 #ifndef PRELAUNCH_H
 #define PRELAUNCH_H
 
 class preLaunch: public State {
     public:
+        preLaunch(stateMachine* sm);
         void initialise();
         State* update();
         void exitState();

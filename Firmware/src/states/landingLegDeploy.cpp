@@ -1,6 +1,11 @@
 #include "landingLegDeploy.h"
 
+landingLegDeploy::landingLegDeploy(stateMachine* sm):
+State(sm)
+{}
+
 void landingLegDeploy::initialise() {
+
     buzz.stateAlert();
 };
 

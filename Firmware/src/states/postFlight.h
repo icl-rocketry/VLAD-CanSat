@@ -12,6 +12,7 @@
 
 class postFlight: public State {
     public:
+        postFlight(stateMachine* sm);
         void initialise();
         State* update();
         void exitState();

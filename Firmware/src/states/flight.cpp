@@ -1,5 +1,9 @@
 #include "flight.h"
 
+flight::flight(stateMachine* sm):
+    State(sm)
+{}
+
 void flight::initialise() {
     buzz.stateAlert();
 };

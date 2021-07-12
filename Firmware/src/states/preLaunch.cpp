@@ -1,5 +1,8 @@
 #include "preLaunch.h"
 
+preLaunch::preLaunch(stateMachine* sm):
+State(sm)
+{}
 void preLaunch::initialise() {
     buzz.stateAlert();
 };

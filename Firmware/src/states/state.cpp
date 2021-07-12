@@ -1,6 +1,10 @@
 #include "state.h"
+#include "../stateMachine.h"
 
-// Need empty virtual constructor to make compiler happy
-State::~State() {
+State::State(stateMachine* sm):
+_sm(sm)
+{};
+// Need empty virtual destructor to make compiler happy
+State::~State(){
 
 };
