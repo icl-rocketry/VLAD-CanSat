@@ -28,10 +28,12 @@ void ErrorHandler::raiseError(states component){
 
         case states::imu:
             currentState |= (uint8_t)pow(2,3); 
+            BuzzMe();
             break;
 
         case states::Baro:
             currentState |= (uint8_t)pow(2,4); 
+            BuzzMe();
             break;
         
         case states::Radio:
