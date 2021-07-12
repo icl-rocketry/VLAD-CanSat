@@ -27,10 +27,7 @@ class stateMachine {
     void update();
     void exitState();
     void changeState(State* newStatePtr);
-
-  private:
-    State* _currStatePtr;
-
+    
     buzzer buzz;
     ErrorHandler errHand;
     latch spike;
@@ -39,6 +36,9 @@ class stateMachine {
     barom BMP;
     sd_card_log SD_Card;
     radio loraRad;
+
+  private:
+    State* _currStatePtr;
 };
 
 #endif

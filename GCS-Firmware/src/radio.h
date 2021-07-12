@@ -9,7 +9,7 @@
 #define FIRE_COMMAND 0x02
 #define TELEMETRY_COMMAND 0x03
 
-#define telemetryPacketLength 18
+#define telemetryPacketLength 21
 
 #include <Arduino.h>
 #include <LoRa.h>

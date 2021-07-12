@@ -18,29 +18,36 @@ void ErrorHandler::raiseError(states component){
     switch (component)
     {
         case states::servo:
-            currentState |= (uint8_t)pow(2,1); 
+            currentState |= (uint8_t)pow(2,0); 
             break;
 
         case states::SDCard:
-            currentState |= (uint8_t)pow(2,2); 
+            currentState |= (uint8_t)pow(2,1); 
             BuzzMe();
             break;
 
         case states::imu:
-            currentState |= (uint8_t)pow(2,3); 
+            currentState |= (uint8_t)pow(2,2); 
             BuzzMe();
             break;
 
         case states::Baro:
-            currentState |= (uint8_t)pow(2,4); 
+            currentState |= (uint8_t)pow(2,3); 
             BuzzMe();
             break;
         
         case states::Radio:
-            currentState |= (uint8_t)pow(2,5); 
+            currentState |= (uint8_t)pow(2,4); 
             BuzzMe();
             break;
-        
+
+        case states::spikeFired:
+            currentState |= (uint8_t)pow(2,5); 
+            break;
+
+        case states::spikeArmed:
+            currentState |= (uint8_t)pow(2,6); 
+            break;
     }
 }
 

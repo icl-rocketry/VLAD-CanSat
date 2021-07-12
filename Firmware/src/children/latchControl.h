@@ -10,9 +10,11 @@
 
 #include <Arduino.h>
 #include <pinDefinitions.h>
+#include "errorHandling.h"
 
 class latch {
     public:
+        latch(ErrorHandler* errHand);
         void setup(); 
         void armSpike(); 
         void beginCountDown();
@@ -30,6 +32,8 @@ class latch {
         bool inCountdown;
         bool hasRunSetup;
         bool isFiring;
+
+        ErrorHandler* _errHand;
 
         uint32_t countdownStartTime;
         uint32_t fireStartTime;

@@ -1,5 +1,9 @@
 #include "latchControl.h"
 
+latch::latch(ErrorHandler* errHand):
+_errHand(errHand)
+{}
+
 void latch::setup() {
     // Set up twelve volt bus switch
     // IMPORTANT
@@ -12,6 +16,7 @@ void latch::armSpike() {
     // Set armed flag to true
     setupCheck();
     isArmed = true;
+    _errHand->raiseError(states::spikeArmed);
 }
 
 
@@ -32,6 +37,7 @@ void latch::fireSpike() {
 
     if (isArmed) {
         isFiring = true;
+        _errHand->raiseError(states::spikeFired);
         digitalWrite(TWELVE_V_SWITCH, HIGH);
         inCountdown = false;
         imminentDeployment = false;

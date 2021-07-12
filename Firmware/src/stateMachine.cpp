@@ -11,7 +11,7 @@ Written by the Electronics team, Imperial College London Rocketry
 stateMachine::stateMachine():
 buzz(),
 errHand(&buzz),
-spike(),
+spike(&errHand),
 landingLegs(),
 bno(&errHand),
 BMP(&errHand),
