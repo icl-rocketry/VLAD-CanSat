@@ -21,6 +21,7 @@ public:
     void WIFIloop();
 
 private:
+    telemetry_t _telemetry;
     radio* _RadioGCS;
     WiFiServer server; // Set web server port number to 80
     // Variable to store the HTTP request
