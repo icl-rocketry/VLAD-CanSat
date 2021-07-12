@@ -15,7 +15,6 @@ sd_card_log::sd_card_log(barom* bmp388, IMU* bno, ErrorHandler* errHand){
 };
 
 void sd_card_log::begin(){
-    Serial.println("Just before initialisation");
     SD.begin(SD_CS);
 
     if (!SD.begin(SD_CS))
@@ -60,11 +59,12 @@ void sd_card_log::logSDCard(){
   // Get values to write
   unsigned long timeStamp = millis();
 
-  float altitude = _bmp388->getAltitude();
+  float altitude;
+  altitude = _bmp388->getAltitude();
 
   float orientation[3];
   _bno->getOrientation(&orientation[0]);
-  
+ 
   // Arbitrary numbers for testing
   uint8_t SystemState = _errHand->get_state();
 

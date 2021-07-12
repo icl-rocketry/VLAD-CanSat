@@ -21,15 +21,25 @@ loraRad(&BMP, &bno, &errHand)
 
 void stateMachine::initialise(State* initStatePtr) {
 
+  Serial.begin(115200);
+
+  Serial.println("Initialising classes...");
+
   // Initialise subsystems
   spike.setup();
+  Serial.println("Set up spike");
   buzz.setupBuzzer();
+  Serial.println("Set up buzzer");
   landingLegs.begin();
+  Serial.println("Set up servo");
   bno.imuBegin();
+  Serial.println("Set up IMU");
   BMP.baromBegin();
+  Serial.println("Set up barometer");
   loraRad.setup();
+  Serial.println("Set up lora");
   SD_Card.begin();
-
+  Serial.println("Set up SD card");
   // Initialise the classes
   changeState(initStatePtr);
 }
@@ -48,10 +58,12 @@ void stateMachine::update() {
     exitState();
     changeState(newStatePtr);
   }
+  delay(100);
 }
 
 void stateMachine::changeState(State* newStatePtr) {
   // Delete old state instance and change to new one
+  Serial.println("Changing State...");
   delete _currStatePtr;
   _currStatePtr = newStatePtr;
   _currStatePtr -> initialise();

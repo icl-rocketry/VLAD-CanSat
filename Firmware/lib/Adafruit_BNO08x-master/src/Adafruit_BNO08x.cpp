@@ -90,13 +90,17 @@ bool Adafruit_BNO08x::begin_I2C(uint8_t i2c_address, TwoWire *wire,
     Serial.println(F("I2C address not found"));
     return false;
   }
-
+  Serial.println("i2c began inside library");
   _HAL.open = i2chal_open;
+  Serial.println("1");
   _HAL.close = i2chal_close;
+  Serial.println("2");
   _HAL.read = i2chal_read;
+  Serial.println("3");
   _HAL.write = i2chal_write;
+  Serial.println("4");
   _HAL.getTimeUs = hal_getTimeUs;
-
+  Serial.println("wrote to class");
   return _init(sensor_id);
 }
 

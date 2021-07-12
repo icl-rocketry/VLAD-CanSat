@@ -22,6 +22,7 @@ class barom {
         float altitudemeasurements[numberofmeasurements];
 
         bool baromBegin();
+        bool working = false;
         //gives the altitude
         float getAltitude();
 

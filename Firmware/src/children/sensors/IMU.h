@@ -22,7 +22,7 @@ class IMU {
         sh2_SensorValue_t sensorValue;
         uint32_t lastDataTime;
         
-
+        bool working = false;
         bool imuBegin();
         void updateData();
         bool highGEvent();
