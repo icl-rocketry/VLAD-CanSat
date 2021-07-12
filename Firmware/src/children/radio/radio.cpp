@@ -4,13 +4,14 @@
 #include <Arduino.h>
 #include <vector>
 
-radio::radio():
+radio::radio(ErrorHandler* errHand):
 spikeFire(false),
 spikeArmed(false),
-_txDone(false)
+_txDone(false),
+_errHand(errHand)
 {}
 
-bool radio::setup() {
+void radio::setup() {
     // Code to be run at setup
 
     // Set initial value of spike fire state to 0
@@ -19,8 +20,10 @@ bool radio::setup() {
 
     LoRa.setPins(RADIO_CS, RADIO_RESET, RADIO_IRQ);
 
-    // Returns true if initialised succesfully, false otherwise
-    return LoRa.begin(868E6);
+    // Initialise LoRa
+    if (!LoRa.begin(868E6)) {
+        _errHand->raiseError(states::Radio);
+    }
 }
 
 void radio::update() {

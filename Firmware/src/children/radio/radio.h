@@ -17,6 +17,7 @@
 #include <array>
 #include <vector>
 #include <pinDefinitions.h>
+#include "../errorHandling.h"
 
 // Telemetry packet struct
 struct telemetry_t{
@@ -28,8 +29,8 @@ struct telemetry_t{
 
 class radio {
     public:
-        radio();
-        bool setup();
+        radio(ErrorHandler* errHand);
+        void setup();
         void update();
 
         bool spikeFire;
@@ -48,6 +49,7 @@ class radio {
         std::vector<telemetry_t> _sendBuffer;
         bool _txDone;
         uint16_t msgCount;
+        ErrorHandler* _errHand;
 };
 
 #endif

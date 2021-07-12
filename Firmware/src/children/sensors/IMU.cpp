@@ -8,8 +8,9 @@
 #define acceltolerance 0.2
 
 
-IMU::IMU(){
+IMU::IMU(ErrorHandler* errHand){
     lastDataTime = 0;
+    _errHand = errHand;
 }
 
 bool IMU::imuBegin(){
@@ -27,6 +28,7 @@ bool IMU::imuBegin(){
         return true;
     } else {
         Serial.print("Failure finding chip");
+        _errHand->raiseError(states::imu);
         }
     return false;
 }
@@ -35,6 +37,7 @@ void IMU::updateData(){
     if(millis()-lastDataTime >= datadelay){
         if (!bno08x->getSensorEvent(&sensorValue)) {
             Serial.println("could not update values");
+            _errHand->raiseError(states::imu);
         }
 
     }

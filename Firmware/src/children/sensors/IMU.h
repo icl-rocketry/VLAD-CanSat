@@ -8,6 +8,7 @@ BN0055
 
 #include <Arduino.h>
 #include <Adafruit_BNO08x.h>
+#include "../errorHandling.h"
 
 
 #ifndef IMU_H
@@ -16,8 +17,9 @@ BN0055
 class IMU {
     public:
 
-        IMU();
+        IMU(ErrorHandler* errHand);
         Adafruit_BNO08x * bno08x;
+        ErrorHandler* _errHand;
         sh2_SensorValue_t sensorValue;
         uint32_t lastDataTime;
         

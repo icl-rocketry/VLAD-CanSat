@@ -5,9 +5,10 @@
 #define numberofmeasurements 10
 #define timestandby 80
 #define altitudetolerance 3
-barom::barom() {
+barom::barom(ErrorHandler* errHand) {
     FIFOenabled = false;
     lastHasLandedTimeCheck = 0;
+    _errHand = errHand;
     //starts storage of data, could put this in the hasLanded loop and run it once.
 }
 
@@ -20,6 +21,7 @@ bool barom::baromBegin(){
         return true;
     } else {
         Serial.println('Errror starting bmp388');
+        _errHand->raiseError(states::Baro);
         return false;
     }
 }
@@ -29,6 +31,7 @@ float barom::getAltitude() {
         return altitude;
     } else {
         Serial.print('Error getting altitude');
+        _errHand->raiseError(states::Baro);
         return 0;
     }
 }

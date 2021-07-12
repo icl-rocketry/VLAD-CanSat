@@ -4,6 +4,7 @@
 //BMP388
 #include <Arduino.h>
 #include "BMP388_DEV.h"
+#include "../errorHandling.h"
 
 #ifndef BAROM_H
 #define BAROM_H
@@ -12,8 +13,9 @@
 
 class barom {
     public:
-        barom();
+        barom(ErrorHandler* errHand);
         BMP388_DEV bmp388;
+        ErrorHandler* _errHand;
         bool FIFOenabled;
         float altitude;
         uint32_t lastHasLandedTimeCheck;
