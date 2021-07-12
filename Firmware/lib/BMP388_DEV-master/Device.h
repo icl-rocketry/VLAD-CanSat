@@ -32,6 +32,8 @@
 #ifndef Device_h
 #define Device_h
 
+#define ARDUINO_ARCH_ESP32
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <SPI.h>

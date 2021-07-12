@@ -9,6 +9,7 @@ BN0055
 #include <Arduino.h>
 #include <Adafruit_BNO08x.h>
 #include "../errorHandling.h"
+#include <Wire.h>
 
 
 #ifndef IMU_H
@@ -18,8 +19,6 @@ class IMU {
     public:
 
         IMU(ErrorHandler* errHand);
-        Adafruit_BNO08x * bno08x;
-        ErrorHandler* _errHand;
         sh2_SensorValue_t sensorValue;
         uint32_t lastDataTime;
         
@@ -29,6 +28,10 @@ class IMU {
         bool highGEvent();
         void getOrientation(float* orientationArr);
         bool isStationary();
+    private:
+        Adafruit_BNO08x * bno08x;
+        ErrorHandler* _errHand;
+        TwoWire wireObj;
 };
 
 #endif

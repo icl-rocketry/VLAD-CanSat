@@ -8,13 +8,18 @@
 #define acceltolerance 0.2
 
 
-IMU::IMU(ErrorHandler* errHand){
+IMU::IMU(ErrorHandler* errHand):
+wireObj(0)
+{
     lastDataTime = 0;
     _errHand = errHand;
 }
 
 bool IMU::imuBegin(){
-    if(bno08x->begin_I2C()){
+    // Initialise Wire on the correct pins
+    wireObj.begin(SDA_PIN, SCL_PIN);
+
+    if(bno08x->begin_I2C(BNO08x_I2CADDR_DEFAULT, &wireObj, 0)){
         lastDataTime = millis();
 
         if (!bno08x->enableReport(SH2_LINEAR_ACCELERATION)) {

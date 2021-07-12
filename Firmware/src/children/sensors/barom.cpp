@@ -5,7 +5,9 @@
 #define numberofmeasurements 10
 #define timestandby 80
 #define altitudetolerance 3
-barom::barom(ErrorHandler* errHand) {
+barom::barom(ErrorHandler* errHand):
+    bmp388(SDA_PIN, SCL_PIN)
+ {
     FIFOenabled = false;
     lastHasLandedTimeCheck = 0;
     _errHand = errHand;

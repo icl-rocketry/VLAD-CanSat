@@ -1,3 +1,5 @@
+#define ARDUINO_ARCH_ESP32
+
 #include <Arduino.h>
 #include "stateMachine.h"
 #include "states/preLaunch.h"
