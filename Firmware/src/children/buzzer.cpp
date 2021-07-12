@@ -41,11 +41,7 @@ void buzzer::startingAlert(){
 void buzzer::errorAlert(){
     // wouldn't shut up before the error is fixed
     // just to annoy everyone
-    if (millis() - previousT >= delay) {
-    // save the last time you made a buzzer sound
-    previousT += delay;
-    ESP_tone.tone(BUZZER_PIN, 1000, delay); // Send 1KHz sound signal
-    }
+    ESP_tone.tone(BUZZER_PIN, 1000); // Send 1KHz sound signal
 }
 
 // included this in initialise code for different states
