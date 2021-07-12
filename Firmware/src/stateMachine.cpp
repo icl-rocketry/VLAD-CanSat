@@ -40,6 +40,7 @@ void stateMachine::update() {
   landingLegs.update();
   loraRad.update();
   bno.updateData();
+  buzz.update(); // buzz lightyear !!!!!!!
 
   State* newStatePtr = _currStatePtr -> update();
 
