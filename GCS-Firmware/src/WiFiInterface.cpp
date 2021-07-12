@@ -4,13 +4,17 @@
 
 #include <WiFi.h> // Load Wi-Fi library
 
-WiFiInterface::WiFiInterface(radio* RadioGCS) {
-    _RadioGCS = RadioGCS;
-}
+// WIFI credentials
+const char *ssid = "ICLR_CanSat";
+const char *password = "rocketsAreCool!";
+
+WiFiInterface::WiFiInterface(radio* RadioGCS):
+_RadioGCS(RadioGCS),
+server(80)
+{}
 
 void WiFiInterface::setupWIFI(){
-    WiFiServer server(80); // Set web server port number to 80
-    
+   
     Serial.print("Setting AP..."); // Set up AP Mode
     WiFi.softAP(ssid, password);
 
@@ -47,15 +51,15 @@ void WiFiInterface::WIFIloop()
                         client.println("Content-type:text/html");
                         client.println("Connection: close");
                         client.println();
+                        client.println("<p><a href=\"192.168.4.1/fire_spike\"><button class=\"button\">Fire spike</button></a></p>");
+                        client.println("<p><a href=\"192.168.4.1/arm_spike\"><button class=\"button\">Arm Spike</button></a></p>");
+                        client.println("<p><a href=\"192.168.4.1/send_telemetry\"><button class=\"button\">Send Telemetry</button></a></p>");
 
-                        client.println("<p><a href=\"192.168.1.1/fire_spike/on\"><button class=\"button\">ON</button></a></p>");
-                        client.println("<p><a href=\"192.168.1.1/arm_spike/on\"><button class=\"button\">ON</button></a></p>");
-                        client.println("<p><a href=\"192.168.1.1/send_telemetry/on\"><button class=\"button\">ON</button></a></p>");
-
-                        if (header.indexOf("GET /fire_spike") >= 0)
+                        if (header.indexOf("GET /192.168.4.1/fire_spike") >= 0)
                         {
-                            client.print("Fire_spike");
-                            next_command = Command::fireSpike;
+                            client.print("Fire spike");
+                            Serial.println("Sending Fire Spike Command");
+                            _RadioGCS->sendCommand(Command::fireSpike);
                             /*
                             client.print("Ematch Status: ");
                             client.println(digitalRead(PYRO_CHANNEL_PIN));
@@ -63,28 +67,69 @@ void WiFiInterface::WIFIloop()
                             client.print("Continuity Status: ");
                             client.println(digitalRead(PYRO_CHANNEL_CONT));
                             */
+                           client.print("<HEAD>");
+                           client.print("<meta http-equiv=\"refresh\" content=\"0;url=/\">");
+                           client.print("</head>");
                             break;
-                        }
-
-                        if (header.indexOf("GET /arm_spike") >= 0)
+                            
+                        } else if (header.indexOf("GET /192.168.4.1/arm_spike") >= 0)
                         {
                             client.print("Arm_spike");
-                            next_command = Command::armSpike;
+                            _RadioGCS->sendCommand(Command::armSpike);
+                            Serial.println("Sending Arm Spike Command");
+
+                            client.print("<HEAD>");
+                            client.print("<meta http-equiv=\"refresh\" content=\"0;url=/\">");
+                            client.print("</head>");
 
                             break;
-                        }
-
-                        if (header.indexOf("GET /send_telemetry") >= 0)
+                        } else if (header.indexOf("GET /192.168.4.1/send_telemetry") >= 0)
                         {
                             client.print("Send_telemetry");
-                            next_command = Command::sendTelemetry;
-
+                            _RadioGCS->sendCommand(Command::sendTelemetry);
+                            client.print("<HEAD>");
+                            client.print("<meta http-equiv=\"refresh\" content=\"0;url=/\">");
+                            client.print("</head>");
+                            Serial.println("Sending Send Telemetry Command");
                             break;
                         }
-                        else
-                        { // if you got a newline, then clear currentLine
-                            currentLine = "";
+
+                        // Display the HTML web page
+                        client.println("<!DOCTYPE html><html>");
+                        client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+                        client.println("<link rel=\"icon\" href=\"data:,\">");
+                        // CSS to style the on/off buttons
+                        client.println("<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}");
+                        client.println(".button { background-color: #00FF00; border: none; color: white; padding: 16px 40px;");
+                        client.println("text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}");
+                        client.println(".button2 {background-color: #FF0000;}</style></head>");
+
+                        // Web Page Heading
+                        client.println("<body><h1>CanSat Awesome GCS</h1>");
+
+                        // Display current state, and ON/OFF buttons for EMatch
+                        //client.println("<p>EMatch - State " + pyroState + "</p>");
+
+                        // If the pyroState is off, it displays the ON button
+                        /*if (pyroState == "off")
+                        {
+                            client.println("<p><a href=\"/pyro/on\"><button class=\"button\">ON</button></a></p>");
                         }
+                        else
+                        {
+                            client.println("<p><a href=\"/pyro/off\"><button class=\"button button2\">OFF</button></a></p>");
+                        }*/
+                        client.println("</body></html>");
+
+                        // The HTTP response ends with another blank line
+                        client.println();
+
+                        // Break out of the while loop
+                        break;
+                    }
+                    else
+                    { // if you got a newline, then clear currentLine
+                        currentLine = "";
                     }
 
                     if (c != '\r')
@@ -93,7 +138,6 @@ void WiFiInterface::WIFIloop()
                     }
                 }
             }
-            
         }
 
         client.println("</body></html>");
