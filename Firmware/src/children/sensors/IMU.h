@@ -7,7 +7,8 @@ BN0055
 */
 
 #include <Arduino.h>
-#include <Adafruit_BNO08x.h>
+#include <MPU6050.h>
+#include "I2Cdev.h"
 #include "../errorHandling.h"
 #include <Wire.h>
 
@@ -17,19 +18,21 @@ BN0055
 
 class IMU {
     public:
-
+        bool dmpReady = false;  // set true if DMP init was successful
+        uint8_t devStatus;      // return status after each device operation (0 = success, !0 = error)
+        uint8_t fifoBuffer[64]; // FIFO storage buffer
+        
         IMU(ErrorHandler* errHand);
-        sh2_SensorValue_t sensorValue;
+        MPU6050 mpu;
         uint32_t lastDataTime;
         
-        bool working = false;
         bool imuBegin();
         void updateData();
         bool highGEvent();
         void getOrientation(float* orientationArr);
         bool isStationary();
     private:
-        Adafruit_BNO08x * bno08x;
+
         ErrorHandler* _errHand;
         TwoWire wireObj;
 };

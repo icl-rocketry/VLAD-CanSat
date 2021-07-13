@@ -18,79 +18,70 @@ wireObj(0)
 bool IMU::imuBegin(){
     // Initialise Wire on the correct pins
     wireObj.begin(SDA_PIN, SCL_PIN);
+    mpu.initialize();
+    devStatus = mpu.dmpInitialize();
+    Serial.println(mpu.testConnection() ? F("MPU6050 connection successful") : F("MPU6050 connection failed"));
 
-    Serial.println("About to initialise bno..");
-    //if (bno08x->begin_I2C(BNO08x_I2CADDR_DEFAULT, &wireObj, 0)){
-    if (bno08x->begin_I2C(0x4A,&wireObj,0)) {
-        lastDataTime = millis();
+    mpu.setXGyroOffset(220);
+    mpu.setYGyroOffset(76);
+    mpu.setZGyroOffset(-85);
+    mpu.setXAccelOffset(1788); // 1688 factory default for my test chip
+    mpu.setYAccelOffset(1788); // 1688 factory default for my test chip
+    mpu.setZAccelOffset(1788); // 1688 factory default for my test chip
 
-        Serial.println("i2c began succesfullly for IMU");
-        working = true;
-        if (!bno08x->enableReport(SH2_LINEAR_ACCELERATION)) {
-            Serial.println("Could not enable Linear Acceleration");
-        }
-
-        if (!bno08x->enableReport(SH2_ROTATION_VECTOR)) {
-            Serial.println("Could not enable rotation vector");
-        }
-
-        return true;
+    if (devStatus == 0) {
+    // Calibration Time: generate offsets and calibrate our MPU6050
+    mpu.CalibrateAccel(6);
+    mpu.CalibrateGyro(6);
+    mpu.PrintActiveOffsets();
+    // turn on the DMP, now that it's ready
+    mpu.setDMPEnabled(true);
+    dmpReady = true;
     } else {
-        Serial.print("Failure finding chip");
-        _errHand->raiseError(states::imu);
+        Serial.println('not again....');
     }
-    return false;
+
 }
 
 void IMU::updateData(){
-    if(millis()-lastDataTime >= datadelay){
-        if (working) {
-            if (!bno08x->getSensorEvent(&sensorValue)) {
-                Serial.println("could not update values");
-                _errHand->raiseError(states::imu);
-                working = false;
-            }
-        }
+    if(!dmpReady) return;
+    if (millis()-lastDataTime >= datadelay){
+        lastDataTime = millis();
+        if(mpu.dmpGetCurrentFIFOPacket(fifoBuffer)){
+            return;
+        } 
+        Serial.println('couldnt update data :(');
     }
 }
 
 bool IMU::highGEvent(){
-    if(working && (pow(pow(sensorValue.un.linearAcceleration.x,2) + pow(sensorValue.un.linearAcceleration.y, 2) + pow(sensorValue.un.linearAcceleration.z, 2), 0.5)) >= gtolerance*gravityaccel){
+    mpu.dmpGetLinearAccel(&aaReal, &aa, &gravity);
+    //aaReal.x aaReal.y aaReal.z
+    if (pow(pow(aaReal.x,2)+pow(aaReal.y,2)+pow(aaReal.z, 2), 0.5) >= gravityaccel*gtolerance){
         return true;
-    } else {
-        return false;
     }
+    return false;
 }
 
 void IMU::getOrientation(float* orientationArr){
-    if(sensorValue.sensorID == SH2_ROTATION_VECTOR){
-        if(working) {
-            *orientationArr = sensorValue.un.rotationVector.real;
-            orientationArr++;
-            *orientationArr = sensorValue.un.rotationVector.i;
-            orientationArr++;
-            *orientationArr = sensorValue.un.rotationVector.j;
-            orientationArr++;
-            *orientationArr = sensorValue.un.rotationVector.k;
-        } else {
-            *orientationArr = 0;
-            orientationArr++;
-            *orientationArr = 0;
-            orientationArr++;
-            *orientationArr = 0;
-            orientationArr++;
-            *orientationArr = 0;
-        }
-    }
+    mpu.dmpGetQuaternion(&q, fifoBuffer);
+    //q.w q.x q.y q.z
+    *orientationArr = q.w;
+    orientationArr++;
+    *orientationArr = q.x;
+    orientationArr++;
+    *orientationArr = q.y;
+    orientationArr++;
+    *orientationArr = q.z;
 }
 
 
-//checks stationary just with acceleration, could implement gyroscope check if needed
+
 bool IMU::isStationary(){
-    if(sensorValue.sensorID == SH2_LINEAR_ACCELERATION){
-        if(working && sensorValue.un.linearAcceleration.x<acceltolerance&&sensorValue.un.linearAcceleration.y<acceltolerance&&sensorValue.un.linearAcceleration.z<acceltolerance){
-            return true;
-        } 
-        return false;
+    mpu.dmpGetLinearAccel(&aaReal, &aa, &gravity);
+    //aaReal.x aaReal.y aaReal.z
+    if (aaReal.x<acceltolerance&&aaReal.y<acceltolerance&&aaReal.z<acceltolerance){
+        return true;
     }
+    return false;
 }
