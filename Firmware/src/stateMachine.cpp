@@ -11,12 +11,12 @@ Written by the Electronics team, Imperial College London Rocketry
 stateMachine::stateMachine():
 buzz(),
 errHand(&buzz),
-spike(&errHand),
 landingLegs(),
 bno(&errHand),
 BMP(&errHand),
 SD_Card(&BMP, &bno, &errHand),
-loraRad(&BMP, &bno, &errHand)
+loraRad(&BMP, &bno, &errHand),
+spike(&errHand, &loraRad)
 {}
 
 void stateMachine::initialise(State* initStatePtr) {
@@ -27,19 +27,12 @@ void stateMachine::initialise(State* initStatePtr) {
 
   // Initialise subsystems
   spike.setup();
-  Serial.println("Set up spike");
   buzz.setupBuzzer();
-  Serial.println("Set up buzzer");
   landingLegs.begin();
-  Serial.println("Set up servo");
   bno.imuBegin();
-  Serial.println("Set up IMU");
   BMP.baromBegin();
-  Serial.println("Set up barometer");
   loraRad.setup();
-  Serial.println("Set up lora");
   SD_Card.begin();
-  Serial.println("Set up SD card");
   // Initialise the classes
   changeState(initStatePtr);
 }
@@ -58,7 +51,7 @@ void stateMachine::update() {
     exitState();
     changeState(newStatePtr);
   }
-  delay(100);
+  delay(10);
 }
 
 void stateMachine::changeState(State* newStatePtr) {

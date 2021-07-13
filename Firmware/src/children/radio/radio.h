@@ -11,6 +11,8 @@
 
 #define telemetryPacketLength 21
 
+#define RESPONSE_DELAY 1000 // Wait before response in ms
+
 #include <Arduino.h>
 #include <LoRa.h>
 #include <SPI.h>
@@ -39,10 +41,9 @@ class radio {
         bool spikeArmed;
 
         telemetry_t telemetryPacket;
-       
+       void sendTelemetry();
 
     private:
-        void sendTelemetry();
         void parseCommand(uint8_t command);
         void checkIncomming();
         void checkSendBuffer();
@@ -55,6 +56,7 @@ class radio {
         ErrorHandler* _errHand;
         barom* _bmp;
         IMU* _bno;
+        uint32_t response_time;
 };
 
 #endif

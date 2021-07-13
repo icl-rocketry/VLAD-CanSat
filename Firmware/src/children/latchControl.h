@@ -11,16 +11,18 @@
 #include <Arduino.h>
 #include <pinDefinitions.h>
 #include "errorHandling.h"
+#include "radio/radio.h"
 
 class latch {
     public:
-        latch(ErrorHandler* errHand);
+        latch(ErrorHandler* errHand, radio* canRad);
         void setup(); 
         void armSpike(); 
         void beginCountDown();
         void update();
 
         bool isArmed; 
+        bool hasFired;
         // Mirror of inCountdown, used to signal to other functions
         bool imminentDeployment; 
 
@@ -34,7 +36,7 @@ class latch {
         bool isFiring;
 
         ErrorHandler* _errHand;
-
+        radio* _canRad;
         uint32_t countdownStartTime;
         uint32_t fireStartTime;
 };

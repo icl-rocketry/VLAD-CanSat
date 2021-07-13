@@ -30,12 +30,12 @@ class stateMachine {
     
     buzzer buzz;
     ErrorHandler errHand;
-    latch spike;
     VLAD_servo landingLegs;
     IMU bno;
     barom BMP;
     sd_card_log SD_Card;
     radio loraRad;
+    latch spike;
 
   private:
     State* _currStatePtr;

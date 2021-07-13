@@ -5,7 +5,9 @@ State(sm)
 {}
 
 void postFlight::initialise() {
-    buzz.stateAlert();
+    _sm -> buzz.stateAlert();
+    _sm -> buzz.errorAlert();
+    _sm -> landingLegs.request_move(actions::retract_legs);
 };
 
 State* postFlight::update() {

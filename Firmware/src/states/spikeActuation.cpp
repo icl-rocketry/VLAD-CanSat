@@ -1,4 +1,5 @@
 #include "spikeActuation.h"
+#include "postFlight.h"
 
 spikeActuation::spikeActuation(stateMachine* sm):
 State(sm)
@@ -8,6 +9,11 @@ void spikeActuation::initialise() {
 };
 
 State* spikeActuation::update() {
+    _sm->SD_Card.logSDCard();
+    _sm -> spike.update();
+    if (_sm -> spike.hasFired) {
+        return new postFlight(_sm);
+    }
     return this;
 };
 
