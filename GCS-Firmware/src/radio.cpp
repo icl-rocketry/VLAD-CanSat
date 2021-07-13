@@ -103,3 +103,7 @@ telemetry_t radio::getPacket() {
     messageAvailable = false;
     return _incomingPacket;
 }
+
+int radio::get_rssi() {
+    return LoRa.packetRssi();
+}

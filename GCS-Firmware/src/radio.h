@@ -35,6 +35,7 @@ class radio {
         telemetry_t getPacket();
         bool messageAvailable;
         void sendCommand(Command commandToSend);
+        int get_rssi();
        
     private:
         void checkIncomming();

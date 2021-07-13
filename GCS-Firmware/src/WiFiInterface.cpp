@@ -63,6 +63,7 @@ void WiFiInterface::WIFIloop()
                         client.println("<p>Orientation i: " + String(_telemetry.orientations[1]) + "</p>");
                         client.println("<p>Orientation j: " + String(_telemetry.orientations[2]) + "</p>");
                         client.println("<p>Orientation k: " + String(_telemetry.orientations[3]) + "</p>");
+                        client.println("<p>RSSI: " + String(_RadioGCS->get_rssi()) + "</p>");
 
                         if (header.indexOf("GET /192.168.4.1/fire_spike") >= 0)
                         {
