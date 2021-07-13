@@ -18,6 +18,7 @@ State* landingLegDeploy::update() {
     } else {
         return new spikeActuation(_sm);
     }
+    Serial.println("In_Landing_legs");
 };
 
 void landingLegDeploy::exitState() {

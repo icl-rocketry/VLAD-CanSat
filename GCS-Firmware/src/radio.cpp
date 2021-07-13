@@ -24,6 +24,9 @@ void radio::update() {
     checkIncomming();
     checkSendBuffer();
     checkTx();
+    if (millis() - lastSendTime > HEARTBEAT_TIME) {
+        sendCommand(Command::sendTelemetry);
+    }
 }
 
 void radio::checkIncomming(){
@@ -87,6 +90,7 @@ void radio::checkSendBuffer(){
         //delete front element of send buffer
         _sendBuffer.erase(_sendBuffer.begin());
         _txDone = false;
+        lastSendTime = millis();
     }
 }
 

@@ -55,10 +55,15 @@ file.close();
 }
 
 void sd_card_log::logSDCard(){
+  if (millis()- last_write_time < SD_LOG_INTERVAL) {
+    return;
+  }
 
   // Get values to write
   unsigned long timeStamp = millis();
 
+  last_write_time = timeStamp;
+  
   float altitude;
   altitude = _bmp388->getAltitude();
 

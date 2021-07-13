@@ -6,6 +6,8 @@
 #include <SPI.h>
 #include "../errorHandling.h"
 
+#define SD_LOG_INTERVAL 1000;
+
 #ifndef SDCONTROL_H
 #define SDCONTROL_H
 
@@ -21,6 +23,7 @@ class sd_card_log {
     void appendFile(fs::FS &fs, const char * path, const char * message);
     void writeFile(fs::FS &fs, const char * path, const char * message);
 
+    uint32_t last_write_time;
     barom* _bmp388;
     IMU* _bno;
     ErrorHandler* _errHand;

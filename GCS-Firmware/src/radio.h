@@ -19,6 +19,8 @@
 #include <pinDefinitions.h>
 #include <commands.h>
 
+#define HEARTBEAT_TIME 1250
+
 // Telemetry packet struct
 struct telemetry_t{
     uint8_t systemState;
@@ -41,6 +43,7 @@ class radio {
         void checkIncomming();
         void checkSendBuffer();
         void checkTx();
+        uint32_t  lastSendTime;
 
         std::vector<uint8_t> _sendBuffer;
         bool _txDone;

@@ -13,7 +13,7 @@ void preLaunch::initialise() {
 
 State* preLaunch::update() {
     // Move immediately as IMU not working
-    return new flight(_sm);
+    return this; //new flight(_sm);
 };
 
 void preLaunch::exitState() {
