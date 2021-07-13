@@ -59,9 +59,10 @@ void WiFiInterface::WIFIloop()
                         client.println();
                         client.println("<p>Altitude: " + String(_telemetry.altitude) + "</p>");
                         client.println();
-                        client.println("<p>Orientation X: " + String(_telemetry.orientations[1]) + "</p>");
-                        client.println("<p>Orientation Y: " + String(_telemetry.orientations[2]) + "</p>");
-                        client.println("<p>Orientation Z: " + String(_telemetry.orientations[3]) + "</p>");
+                        client.println("<p>Orientation real: " + String(_telemetry.orientations[0]) + "</p>");
+                        client.println("<p>Orientation i: " + String(_telemetry.orientations[1]) + "</p>");
+                        client.println("<p>Orientation j: " + String(_telemetry.orientations[2]) + "</p>");
+                        client.println("<p>Orientation k: " + String(_telemetry.orientations[3]) + "</p>");
 
                         if (header.indexOf("GET /192.168.4.1/fire_spike") >= 0)
                         {
