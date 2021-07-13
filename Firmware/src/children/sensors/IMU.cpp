@@ -17,11 +17,11 @@ wireObj(0)
 
 bool IMU::imuBegin(){
     // Initialise Wire on the correct pins
-    //wireObj.begin(SDA_PIN, SCL_PIN);
+    wireObj.begin(SDA_PIN, SCL_PIN);
 
     Serial.println("About to initialise bno..");
     //if (bno08x->begin_I2C(BNO08x_I2CADDR_DEFAULT, &wireObj, 0)){
-    if (bno08x->begin_I2C()) {
+    if (bno08x->begin_I2C(0x4A,&wireObj,0)) {
         lastDataTime = millis();
 
         Serial.println("i2c began succesfullly for IMU");

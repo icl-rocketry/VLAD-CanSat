@@ -1,6 +1,5 @@
 #include <Adafruit_I2CDevice.h>
 #include <Arduino.h>
-#include "pinDefinitions.h"
 
 //#define DEBUG_SERIAL Serial
 
@@ -28,7 +27,7 @@ Adafruit_I2CDevice::Adafruit_I2CDevice(uint8_t addr, TwoWire *theWire) {
  *    @return True if I2C initialized and a device with the addr found
  */
 bool Adafruit_I2CDevice::begin(bool addr_detect) {
-  _wire->begin(SDA_PIN, SCL_PIN);
+  _wire->begin();
   _begun = true;
 
   if (addr_detect) {
@@ -54,7 +53,6 @@ bool Adafruit_I2CDevice::detected(void) {
 #ifdef DEBUG_SERIAL
     DEBUG_SERIAL.println(F("Detected"));
 #endif
-  Serial.println("detected");
     return true;
   }
 #ifdef DEBUG_SERIAL

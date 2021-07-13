@@ -12,6 +12,7 @@ State* preLaunch::update() {
     Serial.println("Loop started...");
     _sm->SD_Card.logSDCard();
     Serial.println("SD card completed!");
+    delay(500);
     return this;
 };
 
