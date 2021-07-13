@@ -50,7 +50,7 @@ void setup(void) {
 // Here is where you define the sensor outputs you want to receive
 void setReports(void) {
   Serial.println("Setting desired reports");
-  if (! bno08x.enableReport(SH2_GAME_ROTATION_VECTOR)) {
+  if (!bno08x.enableReport(SH2_GAME_ROTATION_VECTOR)) {
     Serial.println("Could not enable game vector");
   }
 }

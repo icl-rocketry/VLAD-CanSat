@@ -63,30 +63,34 @@ bool IMU::highGEvent(){
 }
 
 void IMU::getOrientation(float* orientationArr){
-    if(working) {
-        *orientationArr = sensorValue.un.rotationVector.real;
-        orientationArr++;
-        *orientationArr = sensorValue.un.rotationVector.i;
-        orientationArr++;
-        *orientationArr = sensorValue.un.rotationVector.j;
-        orientationArr++;
-        *orientationArr = sensorValue.un.rotationVector.k;
-    } else {
-        *orientationArr = 0;
-        orientationArr++;
-        *orientationArr = 0;
-        orientationArr++;
-        *orientationArr = 0;
-        orientationArr++;
-        *orientationArr = 0;
+    if(sensorValue.sensorID == SH2_ROTATION_VECTOR){
+        if(working) {
+            *orientationArr = sensorValue.un.rotationVector.real;
+            orientationArr++;
+            *orientationArr = sensorValue.un.rotationVector.i;
+            orientationArr++;
+            *orientationArr = sensorValue.un.rotationVector.j;
+            orientationArr++;
+            *orientationArr = sensorValue.un.rotationVector.k;
+        } else {
+            *orientationArr = 0;
+            orientationArr++;
+            *orientationArr = 0;
+            orientationArr++;
+            *orientationArr = 0;
+            orientationArr++;
+            *orientationArr = 0;
+        }
     }
 }
 
 
 //checks stationary just with acceleration, could implement gyroscope check if needed
 bool IMU::isStationary(){
-    if(working && sensorValue.un.linearAcceleration.x<acceltolerance&&sensorValue.un.linearAcceleration.y<acceltolerance&&sensorValue.un.linearAcceleration.z<acceltolerance){
-        return true;
-    } 
-    return false;
+    if(sensorValue.sensorID == SH2_LINEAR_ACCELERATION){
+        if(working && sensorValue.un.linearAcceleration.x<acceltolerance&&sensorValue.un.linearAcceleration.y<acceltolerance&&sensorValue.un.linearAcceleration.z<acceltolerance){
+            return true;
+        } 
+        return false;
+    }
 }
