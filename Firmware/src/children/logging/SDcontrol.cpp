@@ -45,7 +45,7 @@ if (!file)
 {
     Serial.println("File doens't exist");
     Serial.println("Creating file...");
-    writeFile(SD, "/data.txt", "Date, Time, Temperature, Pressure, Acc_x, Acc_y, Acc_z, SystemState\r\n");
+    writeFile(SD, "/data.txt", "MillisTime, Altitude, Orr_real, Orr_i, orr_j, orr_k, SystemState\r\n");
 }
 else
 {
@@ -62,7 +62,7 @@ void sd_card_log::logSDCard(){
   float altitude;
   altitude = _bmp388->getAltitude();
 
-  float orientation[3];
+  float orientation[4];
   _bno->getOrientation(&orientation[0]);
  
   // Arbitrary numbers for testing
@@ -71,7 +71,7 @@ void sd_card_log::logSDCard(){
   String dataMessage;
   dataMessage = String(timeStamp) + "," +
                 String(altitude) + "," +
-                String(orientation[0]) + "," + String(orientation[1]) + "," + String(orientation[2]) +
+                String(orientation[0]) + "," + String(orientation[1]) + "," + String(orientation[2]) + "," + String(orientation[3]);
                 "," + String(SystemState) + "\r\n";
   Serial.print("Save data: ");
   Serial.println(dataMessage);

@@ -62,5 +62,7 @@ void serialInterface::printTelemetry(telemetry_t telemetry) {
     Serial.print("  ");
     Serial.println(telemetry.orientations[3]);
     Serial.print("  ");
+    Serial.println(telemetry.orientations[4]);
+    Serial.print("  ");
     Serial.println(telemetry.systemTime);
 }

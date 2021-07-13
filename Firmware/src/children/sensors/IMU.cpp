@@ -64,12 +64,16 @@ bool IMU::highGEvent(){
 
 void IMU::getOrientation(float* orientationArr){
     if(working) {
+        *orientationArr = sensorValue.un.rotationVector.real;
+        orientationArr++;
         *orientationArr = sensorValue.un.rotationVector.i;
         orientationArr++;
         *orientationArr = sensorValue.un.rotationVector.j;
         orientationArr++;
         *orientationArr = sensorValue.un.rotationVector.k;
     } else {
+        *orientationArr = 0;
+        orientationArr++;
         *orientationArr = 0;
         orientationArr++;
         *orientationArr = 0;

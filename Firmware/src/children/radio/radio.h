@@ -9,7 +9,7 @@
 #define FIRE_COMMAND 0x02
 #define TELEMETRY_COMMAND 0x03
 
-#define telemetryPacketLength 21
+#define telemetryPacketLength 25
 
 #define RESPONSE_DELAY 1000 // Wait before response in ms
 
@@ -27,7 +27,7 @@
 struct telemetry_t{
     uint8_t systemState;
     float altitude;
-    float orientations[3];
+    float orientations[4];
     uint32_t systemTime;
 }__attribute__((__packed__)); 
 
