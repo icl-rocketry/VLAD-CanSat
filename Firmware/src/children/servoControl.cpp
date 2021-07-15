@@ -76,11 +76,12 @@ void VLAD_servo::move_servo(){
 };
 
 void VLAD_servo::update(){ // runs repeatedly to check servo
-    if (_Rad.spikeArmed && !deployed && !moving && !hasDeployed) {
+    if (_Rad->spikeArmed && !deployed && !moving && !hasDeployed) {
         request_move(actions::deploy_legs);
+
     }
 
-    if (!moving && _Rad.spikeFire && deployed) {
+    if (!moving && _Rad->spikeFire && deployed) {
         request_move(actions::retract_legs);
     }
 

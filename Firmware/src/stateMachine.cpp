@@ -11,11 +11,11 @@ Written by the Electronics team, Imperial College London Rocketry
 stateMachine::stateMachine():
 buzz(),
 errHand(&buzz),
-landingLegs(),
 bno(&errHand),
 BMP(&errHand),
 SD_Card(&BMP, &bno, &errHand),
 loraRad(&BMP, &bno, &errHand),
+landingLegs(&loraRad),
 spike(&errHand, &loraRad)
 {}
 
@@ -40,7 +40,6 @@ void stateMachine::initialise(State* initStatePtr) {
 void stateMachine::update() {
 
   // Update classes that always need updating
-  landingLegs.update();
   loraRad.update();
   bno.updateData();
   buzz.update(); // buzz lightyear !!!!!!!
