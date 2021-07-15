@@ -22,10 +22,14 @@
 #define speed_retract_legs 180
 
 
-VLAD_servo::VLAD_servo()
+VLAD_servo::VLAD_servo(radio* radObj)
 {
+    _Rad = radObj;
     time_length = 0;
     start_time = 0;
+    deployed = false;
+    moving = false;
+    hasDeployed = false;
 };
 
 void VLAD_servo::begin(){
@@ -45,6 +49,7 @@ void VLAD_servo::desired_time_speed(actions request){ // sets the length of time
         case deploy_legs:
             speed = speed_deploy_legs;
             time_length = time_length_deploy_legs;
+            deployed = true;
             break;
 
         case retract_spike:
@@ -55,6 +60,7 @@ void VLAD_servo::desired_time_speed(actions request){ // sets the length of time
         case retract_legs:
             time_length = speed_retract_legs;
             speed = time_length_retract_legs;
+            deployed = false;
             break;
             
     }
@@ -65,14 +71,23 @@ void VLAD_servo::desired_time_speed(actions request){ // sets the length of time
 void VLAD_servo::move_servo(){
     start_time = millis(); // store the time at which servo begins moving
     obj_servo.write(speed); // begin moving servo
+    moving = true;
 
 };
 
 void VLAD_servo::update(){ // runs repeatedly to check servo
+    if (_Rad.spikeArmed && !deployed && !moving && !hasDeployed) {
+        request_move(actions::deploy_legs);
+    }
+
+    if (!moving && _Rad.spikeFire && deployed) {
+        request_move(actions::retract_legs);
+    }
 
     if (millis() - start_time >= time_length) // when the time_length has passed...
     {
         obj_servo.write(90);
+        moving = false;
     } // ...stop moving servo (set speed to zero)
 
 };
