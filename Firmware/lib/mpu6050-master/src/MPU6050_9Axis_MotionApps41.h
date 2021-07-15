@@ -1,3 +1,4 @@
+
 // I2Cdev library collection - MPU6050 I2C device class, 9-axis MotionApps 4.1 implementation
 // Based on InvenSense MPU-6050 register map document rev. 2.0, 5/19/2011 (RM-MPU-6000A-00)
 // 6/18/2012 by Jeff Rowberg <jeff@rowberg.net>
@@ -884,4 +885,4 @@ uint16_t MPU6050::dmpGetFIFOPacketSize() {
     return dmpPacketSize;
 }
 
-#endif /* _MPU6050_9AXIS_MOTIONAPPS41_H_ */
+#endif /* _MPU6050_9AXIS_MOTIONAPPS41_H_ */ 

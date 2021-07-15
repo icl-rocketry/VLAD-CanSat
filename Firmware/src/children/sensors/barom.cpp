@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include "barom.h"
-#include "BMP388_DEV.h"
 
 #define numberofmeasurements 10
 #define timestandby 80

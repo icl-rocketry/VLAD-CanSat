@@ -7,10 +7,11 @@ BN0055
 */
 
 #include <Arduino.h>
-#include <MPU6050.h>
-#include "I2Cdev.h"
+#include <I2Cdev.h>
+#include <MPU6050_6Axis_MotionApps_V6_12.h>
 #include "../errorHandling.h"
 #include <Wire.h>
+#include <pinDefinitions.h>
 
 
 #ifndef IMU_H
@@ -18,7 +19,11 @@ BN0055
 
 class IMU {
     public:
-        bool dmpReady = false;  // set true if DMP init was successful
+        Quaternion q; 
+        VectorInt16 aa;
+        VectorInt16 aaReal;
+        VectorFloat gravity;
+        bool dmpReady;  // set true if DMP init was successful
         uint8_t devStatus;      // return status after each device operation (0 = success, !0 = error)
         uint8_t fifoBuffer[64]; // FIFO storage buffer
         

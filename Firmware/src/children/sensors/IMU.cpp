@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include "IMU.h"
-#include <Adafruit_BNO08x.h>
 
 #define datadelay 100
 #define gravityaccel 9.81
@@ -11,6 +10,7 @@
 IMU::IMU(ErrorHandler* errHand):
 wireObj(0)
 {
+    devStatus = 1;
     lastDataTime = 0;
     _errHand = errHand;
 }
@@ -19,9 +19,8 @@ bool IMU::imuBegin(){
     // Initialise Wire on the correct pins
     wireObj.begin(SDA_PIN, SCL_PIN);
     mpu.initialize();
-    devStatus = mpu.dmpInitialize();
     Serial.println(mpu.testConnection() ? F("MPU6050 connection successful") : F("MPU6050 connection failed"));
-
+    devStatus = mpu.dmpInitialize();
     mpu.setXGyroOffset(220);
     mpu.setYGyroOffset(76);
     mpu.setZGyroOffset(-85);
@@ -29,18 +28,16 @@ bool IMU::imuBegin(){
     mpu.setYAccelOffset(1788); // 1688 factory default for my test chip
     mpu.setZAccelOffset(1788); // 1688 factory default for my test chip
 
-    if (devStatus == 0) {
     // Calibration Time: generate offsets and calibrate our MPU6050
     mpu.CalibrateAccel(6);
     mpu.CalibrateGyro(6);
-    mpu.PrintActiveOffsets();
-    // turn on the DMP, now that it's ready
-    mpu.setDMPEnabled(true);
-    dmpReady = true;
-    } else {
-        Serial.println('not again....');
-    }
 
+    // turn on the DMP, now that it's ready
+    dmpReady = true;
+    if (devStatus == 0){
+        mpu.setDMPEnabled(true);
+    }
+    return true;
 }
 
 void IMU::updateData(){
@@ -50,8 +47,8 @@ void IMU::updateData(){
         if(mpu.dmpGetCurrentFIFOPacket(fifoBuffer)){
             return;
         } 
-        Serial.println('couldnt update data :(');
     }
+    Serial.println('couldnt update data ');
 }
 
 bool IMU::highGEvent(){
