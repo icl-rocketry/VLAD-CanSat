@@ -12,6 +12,7 @@ sd_card_log::sd_card_log(barom* bmp388, IMU* bno, ErrorHandler* errHand){
   _bmp388 = bmp388;
   _bno = bno;
   _errHand = errHand;
+  last_write_time = 0;
 };
 
 void sd_card_log::begin(){
@@ -55,32 +56,31 @@ file.close();
 }
 
 void sd_card_log::logSDCard(){
-  if (millis()- last_write_time < SD_LOG_INTERVAL) {
-    return;
+  if (millis()- last_write_time > SD_LOG_INTERVAL) {
+
+	  // Get values to write
+	  unsigned long timeStamp = millis();
+
+	  last_write_time = timeStamp;
+	  
+	  float altitude;
+	  altitude = _bmp388->getAltitude();
+
+	  float orientation[4];
+	  _bno->getOrientation(&orientation[0]);
+	 
+	  // Arbitrary numbers for testing
+	  uint8_t SystemState = _errHand->get_state();
+
+	  String dataMessage;
+	  dataMessage = String(timeStamp) + "," +
+			String(altitude) + "," +
+			String(orientation[0]) + "," + String(orientation[1]) + "," + String(orientation[2]) + "," + String(orientation[3]);
+			"," + String(SystemState) + "\r\n";
+	  Serial.print("Save data: ");
+	  Serial.println(dataMessage);
+	  appendFile(SD, "/data.txt", dataMessage.c_str());
   }
-
-  // Get values to write
-  unsigned long timeStamp = millis();
-
-  last_write_time = timeStamp;
-  
-  float altitude;
-  altitude = _bmp388->getAltitude();
-
-  float orientation[4];
-  _bno->getOrientation(&orientation[0]);
- 
-  // Arbitrary numbers for testing
-  uint8_t SystemState = _errHand->get_state();
-
-  String dataMessage;
-  dataMessage = String(timeStamp) + "," +
-                String(altitude) + "," +
-                String(orientation[0]) + "," + String(orientation[1]) + "," + String(orientation[2]) + "," + String(orientation[3]);
-                "," + String(SystemState) + "\r\n";
-  Serial.print("Save data: ");
-  Serial.println(dataMessage);
-  appendFile(SD, "/data.txt", dataMessage.c_str());
 }
 
 void sd_card_log::appendFile(fs::FS &fs, const char * path, const char * message) {

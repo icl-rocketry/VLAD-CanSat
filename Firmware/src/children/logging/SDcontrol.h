@@ -6,7 +6,7 @@
 #include <SPI.h>
 #include "../errorHandling.h"
 
-#define SD_LOG_INTERVAL 1000;
+#define SD_LOG_INTERVAL 1000
 
 #ifndef SDCONTROL_H
 #define SDCONTROL_H
