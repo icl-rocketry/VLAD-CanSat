@@ -13,6 +13,7 @@
 #include <ESP32Servo.h>
 #include <Arduino.h>
 #include "radio/radio.h"
+#include "errorHandling.h"
 
 // grabs arduino library 
 
@@ -21,7 +22,7 @@ enum actions {deploy_legs, retract_spike, retract_legs};
 class VLAD_servo{
 
     public:
-        VLAD_servo(radio* radObj); // function that gets called when class is created (the constructor)
+        VLAD_servo(ErrorHandler* errHand, radio* radObj); // function that gets called when class is created (the constructor)
         void begin();
         void update();
         void request_move(actions request);
@@ -31,6 +32,7 @@ class VLAD_servo{
      private:
         Servo obj_servo;
         radio* _Rad;
+        ErrorHandler* _errHand;
         bool deployed;
         bool moving;
         bool hasDeployed;

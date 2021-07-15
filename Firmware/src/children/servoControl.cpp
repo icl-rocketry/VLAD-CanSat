@@ -22,9 +22,10 @@
 #define speed_retract_legs 180
 
 
-VLAD_servo::VLAD_servo(radio* radObj)
+VLAD_servo::VLAD_servo(ErrorHandler* errHand, radio* radObj)
 {
     _Rad = radObj;
+    _errHand = errHand;
     time_length = 0;
     start_time = 0;
     deployed = false;
@@ -78,11 +79,12 @@ void VLAD_servo::move_servo(){
 void VLAD_servo::update(){ // runs repeatedly to check servo
     if (_Rad->spikeArmed && !deployed && !moving && !hasDeployed) {
         request_move(actions::deploy_legs);
-
+        _errHand -> raiseError(states::spikeArmed);
     }
 
     if (!moving && _Rad->spikeFire && deployed) {
         request_move(actions::retract_legs);
+        errHand -> raiseError(states::spikeFire);
     }
 
     if (millis() - start_time >= time_length) // when the time_length has passed...

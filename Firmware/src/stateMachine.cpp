@@ -15,7 +15,7 @@ bno(&errHand),
 BMP(&errHand),
 SD_Card(&BMP, &bno, &errHand),
 loraRad(&BMP, &bno, &errHand),
-landingLegs(&loraRad),
+landingLegs(&errHand, &loraRad),
 spike(&errHand, &loraRad)
 {}
 
